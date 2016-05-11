@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace NominaSoprade
 {
@@ -39,7 +41,34 @@ namespace NominaSoprade
             solicitararchivo();
         }
         private void LLenarGrid(string archivo, string hoja)
-        {
+        {     
+            OleDbConnection conexion = null;
+            DataSet dataSet = null;
+            OleDbDataAdapter dataAdapter = null;
+            string consultaHojaExcel = "Select * from [" + hoja + "$]";
+            string cadenaConexionArchivoExcel = "provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + archivo + "';Extended Properties=Excel 12.0;";
+            if (string.IsNullOrEmpty(hoja))
+            {
+                MessageBox.Show("No hay una hoja para leer");
+            }
+            else
+            {
+                try
+                {
+                    conexion = new OleDbConnection(cadenaConexionArchivoExcel);
+                    conexion.Open();
+                    dataAdapter = new OleDbDataAdapter(consultaHojaExcel, conexion);
+                    dataSet = new DataSet();
+                    dataAdapter.Fill(dataSet, hoja);
+                    dgvOriginal.DataSource = dataSet.Tables[0];
+                    conexion.Close();
+                    dgvOriginal.AllowUserToAddRows = false; 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error, Verificar el archivo o el nombre de la hoja", ex.Message);
+                }
+            }
         }
     }
 }

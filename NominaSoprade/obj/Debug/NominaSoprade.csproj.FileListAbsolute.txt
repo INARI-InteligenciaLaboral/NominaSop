@@ -6,3 +6,5 @@ F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.Properties.Resources
 F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.csproj.GenerateResource.Cache
 F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.exe
 F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.pdb
+F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.csprojResolveAssemblyReference.cache
+F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.csproj.ResolveComReference.cache
