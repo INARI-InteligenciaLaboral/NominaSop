@@ -1,0 +1,9 @@
+F:\Code\NominaSoprade\NominaSoprade\bin\Debug\NominaSoprade.exe.config
+F:\Code\NominaSoprade\NominaSoprade\bin\Debug\NominaSoprade.exe
+F:\Code\NominaSoprade\NominaSoprade\bin\Debug\NominaSoprade.pdb
+F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.csprojResolveAssemblyReference.cache
+F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.MainForm.resources
+F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.Properties.Resources.resources
+F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.csproj.GenerateResource.Cache
+F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.exe
+F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.pdb
