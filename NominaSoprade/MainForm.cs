@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace NominaSoprade
 {
@@ -20,29 +12,58 @@ namespace NominaSoprade
             InitializeComponent();
             Inicial();
         }
-
+        private void Inicial()
+        {
+            dgvOriginal.DataSource = null;
+            btnProcesar.Enabled = false;
+            btnVac.Enabled = false;
+            btnExcTra.Enabled = false;
+            btnIns.Enabled = false;
+            btnLimpiar.Enabled = false;
+            btnAus.Enabled = false;
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            tbpNoPro.Hide();
+            
+        }
+    #region eventosboton
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            Modelos.ProcesarDocumento m_Procesar = new Modelos.ProcesarDocumento();
+            DataTable dataTabla = new DataTable();
+            dataTabla = dgvOriginal.DataSource as DataTable;
+            m_Procesar.procesamiento(dataTabla);
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvOriginal.DataSource = null;
+            btnProcesar.Enabled = false;
+            btnVac.Enabled = false;
+            btnExcTra.Enabled = false;
+            btnIns.Enabled = false;
+            btnLimpiar.Enabled = false;
+            btnAus.Enabled = false;
+        }
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            solicitararchivo();
+        }
+    #endregion
+    #region Docexcel
         private void solicitararchivo()
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Archivos de Excel (*.xls;*.xlsx)|*.xls;*.xlsx";
             dialog.Title = "Seleccione el archivo de Excel";
             dialog.FileName = string.Empty;
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
                 LLenarGrid(dialog.FileName);
             }
         }
-        private void btnCargar_Click(object sender, EventArgs e)
-        {
-            solicitararchivo();
-        }
         private void LLenarGrid(string archivo)
-        {     
+        {
             OleDbConnection conexion = null;
             DataSet dataSet = null;
             OleDbDataAdapter dataAdapter = null;
@@ -78,31 +99,6 @@ namespace NominaSoprade
                 }
             }
         }
-
-        private void btnProcesar_Click(object sender, EventArgs e)
-        {
-            tbpNoPro.Show();
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            dgvOriginal.DataSource = null;
-            btnProcesar.Enabled = false;
-            btnVac.Enabled = false;
-            btnExcTra.Enabled = false;
-            btnIns.Enabled = false;
-            btnLimpiar.Enabled = false;
-            btnAus.Enabled = false;
-        }
-        private void Inicial()
-        {
-            dgvOriginal.DataSource = null;
-            btnProcesar.Enabled = false;
-            btnVac.Enabled = false;
-            btnExcTra.Enabled = false;
-            btnIns.Enabled = false;
-            btnLimpiar.Enabled = false;
-            btnAus.Enabled = false;
-        }
+     #endregion
     }
 }
