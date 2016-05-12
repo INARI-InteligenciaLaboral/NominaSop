@@ -36,6 +36,7 @@
     <ApplicationIcon>logoInaari.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -85,6 +86,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logoInaari.ico" />
+    <None Include="Resources\User Folder.ico" />
+    <None Include="Resources\Timetable.ico" />
+    <None Include="Resources\Mythique-Design-Original-Messenger-Absent-blue.ico" />
+    <None Include="Resources\Corwins-Mountains-Of-Madness-Tracking-route.ico" />
+    <None Include="Resources\Tatice-Cristal-Intense-Globe-terrestre-2.ico" />
     <None Include="Resources\logoInaari.png" />
     <None Include="Resources\Custom-Icon-Design-Flatastic-9-Generate-tables.ico" />
     <None Include="Resources\Seanau-Email-Clear.ico" />

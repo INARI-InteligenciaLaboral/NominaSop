@@ -63,6 +63,16 @@ namespace NominaSoprade.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Corwins_Mountains_Of_Madness_Tracking_route {
+            get {
+                object obj = ResourceManager.GetObject("Corwins-Mountains-Of-Madness-Tracking-route", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Custom_Icon_Design_Flatastic_9_Generate_tables {
             get {
                 object obj = ResourceManager.GetObject("Custom-Icon-Design-Flatastic-9-Generate-tables", resourceCulture);
@@ -83,6 +93,16 @@ namespace NominaSoprade.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mythique_Design_Original_Messenger_Absent_blue {
+            get {
+                object obj = ResourceManager.GetObject("Mythique-Design-Original-Messenger-Absent-blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Seanau_Email_Clear {
             get {
                 object obj = ResourceManager.GetObject("Seanau-Email-Clear", resourceCulture);
@@ -93,9 +113,39 @@ namespace NominaSoprade.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Tatice_Cristal_Intense_Globe_terrestre_2 {
+            get {
+                object obj = ResourceManager.GetObject("Tatice-Cristal-Intense-Globe-terrestre-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Timetable {
+            get {
+                object obj = ResourceManager.GetObject("Timetable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Treetog_Junior_Document_excel {
             get {
                 object obj = ResourceManager.GetObject("Treetog-Junior-Document-excel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Folder {
+            get {
+                object obj = ResourceManager.GetObject("User Folder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
