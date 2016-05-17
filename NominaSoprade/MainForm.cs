@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NominaSoprade
@@ -23,9 +22,15 @@ namespace NominaSoprade
             btnIns.Enabled = false;
             btnLimpiar.Enabled = false;
             btnAus.Enabled = false;
+            btnAnalizar.Enabled = false;
+            tbxPro.Text = "";
         }
         #region eventosboton
         private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void btnAnalizar_Click(object sender, EventArgs e)
         {
             Actionbtn(false);
             BackgroundWorker Procesar = new BackgroundWorker();
@@ -41,8 +46,8 @@ namespace NominaSoprade
         {
             solicitararchivo();
         }
-    #endregion
-    #region Docexcel
+        #endregion
+        #region Docexcel
         private void solicitararchivo()
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -78,12 +83,12 @@ namespace NominaSoprade
                     dgvOriginal.DataSource = dataSet.Tables[0];
                     conexion.Close();
                     dgvOriginal.AllowUserToAddRows = false;
-                    btnProcesar.Enabled = true;
                     btnLimpiar.Enabled = true;
                     btnVac.Enabled = true;
                     btnExcTra.Enabled = true;
                     btnIns.Enabled = true;
                     btnAus.Enabled = true;
+                    btnAnalizar.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -110,12 +115,12 @@ namespace NominaSoprade
             this.BeginInvoke(new Action(() =>
             {
                 this.Actionbtn(true);
+                if (!this.tbxPro.Equals(""))
+                {
+                    this.btnProcesar.Enabled = false;
+                }
             }));
             MessageBox.Show("Proceso Terminado");
-        }
-        private void Procesar_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            pgbStatus.Value = e.ProgressPercentage;
         }
         private void Actionbtn(bool m_valor)
         {
@@ -126,6 +131,7 @@ namespace NominaSoprade
             btnLimpiar.Enabled = m_valor;
             btnAus.Enabled = m_valor;
             btnCargar.Enabled = m_valor;
+            btnAnalizar.Enabled = m_valor;
         }
         #endregion
     }

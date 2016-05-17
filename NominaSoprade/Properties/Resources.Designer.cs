@@ -83,6 +83,16 @@ namespace NominaSoprade.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Custom_Icon_Design_Pretty_Office_5_Analysis {
+            get {
+                object obj = ResourceManager.GetObject("Custom-Icon-Design-Pretty-Office-5-Analysis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoInaari {
             get {
                 object obj = ResourceManager.GetObject("logoInaari", resourceCulture);

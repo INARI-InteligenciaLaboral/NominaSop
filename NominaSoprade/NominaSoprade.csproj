@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logoInaari.ico" />
+    <None Include="Resources\Custom-Icon-Design-Pretty-Office-5-Analysis.ico" />
     <None Include="Resources\User Folder.ico" />
     <None Include="Resources\Timetable.ico" />
     <None Include="Resources\Mythique-Design-Original-Messenger-Absent-blue.ico" />

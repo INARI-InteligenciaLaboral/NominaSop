@@ -33,16 +33,16 @@
             this.tbpOriginal = new System.Windows.Forms.TabPage();
             this.dgvOriginal = new System.Windows.Forms.DataGridView();
             this.tbpNoPro = new System.Windows.Forms.TabPage();
-            this.btnIns = new System.Windows.Forms.Button();
-            this.btnExcTra = new System.Windows.Forms.Button();
-            this.btnAus = new System.Windows.Forms.Button();
-            this.btnVac = new System.Windows.Forms.Button();
             this.tbxPro = new System.Windows.Forms.TextBox();
+            this.btnAnalizar = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnProcesar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
-            this.pgbStatus = new System.Windows.Forms.ProgressBar();
+            this.btnIns = new System.Windows.Forms.Button();
+            this.btnExcTra = new System.Windows.Forms.Button();
+            this.btnAus = new System.Windows.Forms.Button();
+            this.btnVac = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
             this.tbpOriginal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOriginal)).BeginInit();
@@ -57,7 +57,7 @@
             this.tbcMain.Location = new System.Drawing.Point(12, 75);
             this.tbcMain.Name = "tbcMain";
             this.tbcMain.SelectedIndex = 0;
-            this.tbcMain.Size = new System.Drawing.Size(760, 447);
+            this.tbcMain.Size = new System.Drawing.Size(760, 483);
             this.tbcMain.TabIndex = 0;
             // 
             // tbpOriginal
@@ -66,7 +66,7 @@
             this.tbpOriginal.Location = new System.Drawing.Point(4, 22);
             this.tbpOriginal.Name = "tbpOriginal";
             this.tbpOriginal.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpOriginal.Size = new System.Drawing.Size(752, 421);
+            this.tbpOriginal.Size = new System.Drawing.Size(752, 457);
             this.tbpOriginal.TabIndex = 0;
             this.tbpOriginal.Text = "Original";
             this.tbpOriginal.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             this.dgvOriginal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOriginal.Location = new System.Drawing.Point(6, 6);
             this.dgvOriginal.Name = "dgvOriginal";
-            this.dgvOriginal.Size = new System.Drawing.Size(740, 412);
+            this.dgvOriginal.Size = new System.Drawing.Size(740, 445);
             this.dgvOriginal.TabIndex = 0;
             // 
             // tbpNoPro
@@ -89,10 +89,81 @@
             this.tbpNoPro.Location = new System.Drawing.Point(4, 22);
             this.tbpNoPro.Name = "tbpNoPro";
             this.tbpNoPro.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpNoPro.Size = new System.Drawing.Size(752, 421);
+            this.tbpNoPro.Size = new System.Drawing.Size(752, 457);
             this.tbpNoPro.TabIndex = 1;
             this.tbpNoPro.Text = "Procesado";
             this.tbpNoPro.UseVisualStyleBackColor = true;
+            // 
+            // tbxPro
+            // 
+            this.tbxPro.Location = new System.Drawing.Point(6, 6);
+            this.tbxPro.Multiline = true;
+            this.tbxPro.Name = "tbxPro";
+            this.tbxPro.Size = new System.Drawing.Size(614, 436);
+            this.tbxPro.TabIndex = 0;
+            // 
+            // btnAnalizar
+            // 
+            this.btnAnalizar.Enabled = false;
+            this.btnAnalizar.Image = global::NominaSoprade.Properties.Resources.Custom_Icon_Design_Pretty_Office_5_Analysis;
+            this.btnAnalizar.Location = new System.Drawing.Point(142, 12);
+            this.btnAnalizar.Name = "btnAnalizar";
+            this.btnAnalizar.Size = new System.Drawing.Size(120, 38);
+            this.btnAnalizar.TabIndex = 5;
+            this.btnAnalizar.Text = "Analizar";
+            this.btnAnalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAnalizar.UseVisualStyleBackColor = true;
+            this.btnAnalizar.Click += new System.EventHandler(this.btnAnalizar_Click);
+            // 
+            // pbxLogo
+            // 
+            this.pbxLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbxLogo.Image = global::NominaSoprade.Properties.Resources.logoInaari;
+            this.pbxLogo.Location = new System.Drawing.Point(704, -1);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(58, 92);
+            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxLogo.TabIndex = 4;
+            this.pbxLogo.TabStop = false;
+            // 
+            // btnProcesar
+            // 
+            this.btnProcesar.Enabled = false;
+            this.btnProcesar.Image = global::NominaSoprade.Properties.Resources.Custom_Icon_Design_Flatastic_9_Generate_tables;
+            this.btnProcesar.Location = new System.Drawing.Point(268, 12);
+            this.btnProcesar.Name = "btnProcesar";
+            this.btnProcesar.Size = new System.Drawing.Size(120, 38);
+            this.btnProcesar.TabIndex = 3;
+            this.btnProcesar.Text = "Procesar";
+            this.btnProcesar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProcesar.UseVisualStyleBackColor = true;
+            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Enabled = false;
+            this.btnLimpiar.Image = global::NominaSoprade.Properties.Resources.Seanau_Email_Clear;
+            this.btnLimpiar.Location = new System.Drawing.Point(394, 12);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(120, 38);
+            this.btnLimpiar.TabIndex = 2;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Image = global::NominaSoprade.Properties.Resources.Treetog_Junior_Document_excel;
+            this.btnCargar.Location = new System.Drawing.Point(16, 12);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(120, 38);
+            this.btnCargar.TabIndex = 1;
+            this.btnCargar.Text = "Cargar Archivo";
+            this.btnCargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // btnIns
             // 
@@ -138,78 +209,13 @@
             this.btnVac.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVac.UseVisualStyleBackColor = true;
             // 
-            // tbxPro
-            // 
-            this.tbxPro.Location = new System.Drawing.Point(6, 6);
-            this.tbxPro.Multiline = true;
-            this.tbxPro.Name = "tbxPro";
-            this.tbxPro.Size = new System.Drawing.Size(614, 436);
-            this.tbxPro.TabIndex = 0;
-            // 
-            // pbxLogo
-            // 
-            this.pbxLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbxLogo.Image = global::NominaSoprade.Properties.Resources.logoInaari;
-            this.pbxLogo.Location = new System.Drawing.Point(704, -1);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(58, 92);
-            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxLogo.TabIndex = 4;
-            this.pbxLogo.TabStop = false;
-            // 
-            // btnProcesar
-            // 
-            this.btnProcesar.Enabled = false;
-            this.btnProcesar.Image = global::NominaSoprade.Properties.Resources.Custom_Icon_Design_Flatastic_9_Generate_tables;
-            this.btnProcesar.Location = new System.Drawing.Point(142, 12);
-            this.btnProcesar.Name = "btnProcesar";
-            this.btnProcesar.Size = new System.Drawing.Size(120, 38);
-            this.btnProcesar.TabIndex = 3;
-            this.btnProcesar.Text = "Procesar";
-            this.btnProcesar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProcesar.UseVisualStyleBackColor = true;
-            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Enabled = false;
-            this.btnLimpiar.Image = global::NominaSoprade.Properties.Resources.Seanau_Email_Clear;
-            this.btnLimpiar.Location = new System.Drawing.Point(268, 12);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(120, 38);
-            this.btnLimpiar.TabIndex = 2;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnCargar
-            // 
-            this.btnCargar.Image = global::NominaSoprade.Properties.Resources.Treetog_Junior_Document_excel;
-            this.btnCargar.Location = new System.Drawing.Point(16, 12);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(120, 38);
-            this.btnCargar.TabIndex = 1;
-            this.btnCargar.Text = "Cargar Archivo";
-            this.btnCargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCargar.UseVisualStyleBackColor = true;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
-            // 
-            // pgbStatus
-            // 
-            this.pgbStatus.Location = new System.Drawing.Point(459, 528);
-            this.pgbStatus.Name = "pgbStatus";
-            this.pgbStatus.Size = new System.Drawing.Size(309, 23);
-            this.pgbStatus.TabIndex = 5;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.pgbStatus);
+            this.Controls.Add(this.btnAnalizar);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.btnProcesar);
             this.Controls.Add(this.btnLimpiar);
@@ -245,7 +251,7 @@
         private System.Windows.Forms.Button btnAus;
         private System.Windows.Forms.Button btnExcTra;
         private System.Windows.Forms.Button btnIns;
-        private System.Windows.Forms.ProgressBar pgbStatus;
+        private System.Windows.Forms.Button btnAnalizar;
     }
 }
 
