@@ -33,15 +33,16 @@
             this.tbpOriginal = new System.Windows.Forms.TabPage();
             this.dgvOriginal = new System.Windows.Forms.DataGridView();
             this.tbpNoPro = new System.Windows.Forms.TabPage();
-            this.tbxNoPro = new System.Windows.Forms.TextBox();
-            this.pbxLogo = new System.Windows.Forms.PictureBox();
-            this.btnProcesar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnCargar = new System.Windows.Forms.Button();
             this.btnIns = new System.Windows.Forms.Button();
             this.btnExcTra = new System.Windows.Forms.Button();
             this.btnAus = new System.Windows.Forms.Button();
             this.btnVac = new System.Windows.Forms.Button();
+            this.tbxPro = new System.Windows.Forms.TextBox();
+            this.pbxLogo = new System.Windows.Forms.PictureBox();
+            this.btnProcesar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnCargar = new System.Windows.Forms.Button();
+            this.pgbStatus = new System.Windows.Forms.ProgressBar();
             this.tbcMain.SuspendLayout();
             this.tbpOriginal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOriginal)).BeginInit();
@@ -56,7 +57,7 @@
             this.tbcMain.Location = new System.Drawing.Point(12, 75);
             this.tbcMain.Name = "tbcMain";
             this.tbcMain.SelectedIndex = 0;
-            this.tbcMain.Size = new System.Drawing.Size(760, 474);
+            this.tbcMain.Size = new System.Drawing.Size(760, 447);
             this.tbcMain.TabIndex = 0;
             // 
             // tbpOriginal
@@ -65,7 +66,7 @@
             this.tbpOriginal.Location = new System.Drawing.Point(4, 22);
             this.tbpOriginal.Name = "tbpOriginal";
             this.tbpOriginal.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpOriginal.Size = new System.Drawing.Size(752, 448);
+            this.tbpOriginal.Size = new System.Drawing.Size(752, 421);
             this.tbpOriginal.TabIndex = 0;
             this.tbpOriginal.Text = "Original";
             this.tbpOriginal.UseVisualStyleBackColor = true;
@@ -75,7 +76,7 @@
             this.dgvOriginal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOriginal.Location = new System.Drawing.Point(6, 6);
             this.dgvOriginal.Name = "dgvOriginal";
-            this.dgvOriginal.Size = new System.Drawing.Size(740, 436);
+            this.dgvOriginal.Size = new System.Drawing.Size(740, 412);
             this.dgvOriginal.TabIndex = 0;
             // 
             // tbpNoPro
@@ -84,22 +85,66 @@
             this.tbpNoPro.Controls.Add(this.btnExcTra);
             this.tbpNoPro.Controls.Add(this.btnAus);
             this.tbpNoPro.Controls.Add(this.btnVac);
-            this.tbpNoPro.Controls.Add(this.tbxNoPro);
+            this.tbpNoPro.Controls.Add(this.tbxPro);
             this.tbpNoPro.Location = new System.Drawing.Point(4, 22);
             this.tbpNoPro.Name = "tbpNoPro";
             this.tbpNoPro.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpNoPro.Size = new System.Drawing.Size(752, 448);
+            this.tbpNoPro.Size = new System.Drawing.Size(752, 421);
             this.tbpNoPro.TabIndex = 1;
-            this.tbpNoPro.Text = "No procesados";
+            this.tbpNoPro.Text = "Procesado";
             this.tbpNoPro.UseVisualStyleBackColor = true;
             // 
-            // tbxNoPro
+            // btnIns
             // 
-            this.tbxNoPro.Location = new System.Drawing.Point(6, 6);
-            this.tbxNoPro.Multiline = true;
-            this.tbxNoPro.Name = "tbxNoPro";
-            this.tbxNoPro.Size = new System.Drawing.Size(614, 436);
-            this.tbxNoPro.TabIndex = 0;
+            this.btnIns.Image = global::NominaSoprade.Properties.Resources.User_Folder;
+            this.btnIns.Location = new System.Drawing.Point(626, 185);
+            this.btnIns.Name = "btnIns";
+            this.btnIns.Size = new System.Drawing.Size(120, 55);
+            this.btnIns.TabIndex = 5;
+            this.btnIns.Text = "Insidencias";
+            this.btnIns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnIns.UseVisualStyleBackColor = true;
+            // 
+            // btnExcTra
+            // 
+            this.btnExcTra.Image = global::NominaSoprade.Properties.Resources.Timetable;
+            this.btnExcTra.Location = new System.Drawing.Point(626, 124);
+            this.btnExcTra.Name = "btnExcTra";
+            this.btnExcTra.Size = new System.Drawing.Size(120, 55);
+            this.btnExcTra.TabIndex = 4;
+            this.btnExcTra.Text = "Excepciones Trabajadas";
+            this.btnExcTra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExcTra.UseVisualStyleBackColor = true;
+            // 
+            // btnAus
+            // 
+            this.btnAus.Image = global::NominaSoprade.Properties.Resources.Mythique_Design_Original_Messenger_Absent_blue;
+            this.btnAus.Location = new System.Drawing.Point(626, 63);
+            this.btnAus.Name = "btnAus";
+            this.btnAus.Size = new System.Drawing.Size(120, 55);
+            this.btnAus.TabIndex = 3;
+            this.btnAus.Text = "Ausencias";
+            this.btnAus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAus.UseVisualStyleBackColor = true;
+            // 
+            // btnVac
+            // 
+            this.btnVac.Image = global::NominaSoprade.Properties.Resources.Corwins_Mountains_Of_Madness_Tracking_route;
+            this.btnVac.Location = new System.Drawing.Point(626, 6);
+            this.btnVac.Name = "btnVac";
+            this.btnVac.Size = new System.Drawing.Size(120, 51);
+            this.btnVac.TabIndex = 2;
+            this.btnVac.Text = "Vacaciones";
+            this.btnVac.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVac.UseVisualStyleBackColor = true;
+            // 
+            // tbxPro
+            // 
+            this.tbxPro.Location = new System.Drawing.Point(6, 6);
+            this.tbxPro.Multiline = true;
+            this.tbxPro.Name = "tbxPro";
+            this.tbxPro.Size = new System.Drawing.Size(614, 436);
+            this.tbxPro.TabIndex = 0;
             // 
             // pbxLogo
             // 
@@ -151,49 +196,12 @@
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
-            // btnIns
+            // pgbStatus
             // 
-            this.btnIns.Image = global::NominaSoprade.Properties.Resources.User_Folder;
-            this.btnIns.Location = new System.Drawing.Point(626, 185);
-            this.btnIns.Name = "btnIns";
-            this.btnIns.Size = new System.Drawing.Size(120, 55);
-            this.btnIns.TabIndex = 5;
-            this.btnIns.Text = "Insidencias";
-            this.btnIns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnIns.UseVisualStyleBackColor = true;
-            // 
-            // btnExcTra
-            // 
-            this.btnExcTra.Image = global::NominaSoprade.Properties.Resources.Timetable;
-            this.btnExcTra.Location = new System.Drawing.Point(626, 124);
-            this.btnExcTra.Name = "btnExcTra";
-            this.btnExcTra.Size = new System.Drawing.Size(120, 55);
-            this.btnExcTra.TabIndex = 4;
-            this.btnExcTra.Text = "Excepciones Trabajadas";
-            this.btnExcTra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcTra.UseVisualStyleBackColor = true;
-            // 
-            // btnAus
-            // 
-            this.btnAus.Image = global::NominaSoprade.Properties.Resources.Mythique_Design_Original_Messenger_Absent_blue;
-            this.btnAus.Location = new System.Drawing.Point(626, 63);
-            this.btnAus.Name = "btnAus";
-            this.btnAus.Size = new System.Drawing.Size(120, 55);
-            this.btnAus.TabIndex = 3;
-            this.btnAus.Text = "Ausencias";
-            this.btnAus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAus.UseVisualStyleBackColor = true;
-            // 
-            // btnVac
-            // 
-            this.btnVac.Image = global::NominaSoprade.Properties.Resources.Corwins_Mountains_Of_Madness_Tracking_route;
-            this.btnVac.Location = new System.Drawing.Point(626, 6);
-            this.btnVac.Name = "btnVac";
-            this.btnVac.Size = new System.Drawing.Size(120, 51);
-            this.btnVac.TabIndex = 2;
-            this.btnVac.Text = "Vacaciones";
-            this.btnVac.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVac.UseVisualStyleBackColor = true;
+            this.pgbStatus.Location = new System.Drawing.Point(459, 528);
+            this.pgbStatus.Name = "pgbStatus";
+            this.pgbStatus.Size = new System.Drawing.Size(309, 23);
+            this.pgbStatus.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -201,6 +209,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.pgbStatus);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.btnProcesar);
             this.Controls.Add(this.btnLimpiar);
@@ -211,7 +220,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inari Inteligencia Laboral";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tbcMain.ResumeLayout(false);
             this.tbpOriginal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOriginal)).EndInit();
@@ -233,10 +241,11 @@
         private System.Windows.Forms.PictureBox pbxLogo;
         private System.Windows.Forms.DataGridView dgvOriginal;
         private System.Windows.Forms.Button btnVac;
-        private System.Windows.Forms.TextBox tbxNoPro;
+        private System.Windows.Forms.TextBox tbxPro;
         private System.Windows.Forms.Button btnAus;
         private System.Windows.Forms.Button btnExcTra;
         private System.Windows.Forms.Button btnIns;
+        private System.Windows.Forms.ProgressBar pgbStatus;
     }
 }
 

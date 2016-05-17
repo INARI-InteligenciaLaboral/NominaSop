@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NominaSoprade
@@ -22,28 +24,18 @@ namespace NominaSoprade
             btnLimpiar.Enabled = false;
             btnAus.Enabled = false;
         }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-    #region eventosboton
+        #region eventosboton
         private void btnProcesar_Click(object sender, EventArgs e)
         {
-            Modelos.ProcesarDocumento m_Procesar = new Modelos.ProcesarDocumento();
-            DataTable dataTabla = new DataTable();
-            dataTabla = dgvOriginal.DataSource as DataTable;
-            m_Procesar.procesamiento(dataTabla);
+            Actionbtn(false);
+            BackgroundWorker Procesar = new BackgroundWorker();
+            Procesar.DoWork += ProcesarError;
+            Procesar.RunWorkerCompleted += ProcesarTerminado;
+            Procesar.RunWorkerAsync();
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            dgvOriginal.DataSource = null;
-            btnProcesar.Enabled = false;
-            btnVac.Enabled = false;
-            btnExcTra.Enabled = false;
-            btnIns.Enabled = false;
-            btnLimpiar.Enabled = false;
-            btnAus.Enabled = false;
+            Inicial();
         }
         private void btnCargar_Click(object sender, EventArgs e)
         {
@@ -99,6 +91,42 @@ namespace NominaSoprade
                 }
             }
         }
-     #endregion
+        #endregion
+        #region SolAction
+        public void ProcesarError(object o, DoWorkEventArgs e)
+        {
+            string m_valorError;
+            Modelos.ProcesarDocumento m_Procesar = new Modelos.ProcesarDocumento();
+            DataTable dataTabla = new DataTable();
+            dataTabla = dgvOriginal.DataSource as DataTable;
+            m_valorError =  m_Procesar.procesamiento(dataTabla);
+            this.BeginInvoke(new Action(() =>
+            {
+                this.tbxPro.Text = m_valorError;
+            }));
+        }
+        public void ProcesarTerminado(object o, RunWorkerCompletedEventArgs e)
+        {
+            this.BeginInvoke(new Action(() =>
+            {
+                this.Actionbtn(true);
+            }));
+            MessageBox.Show("Proceso Terminado");
+        }
+        private void Procesar_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            pgbStatus.Value = e.ProgressPercentage;
+        }
+        private void Actionbtn(bool m_valor)
+        {
+            btnProcesar.Enabled = m_valor;
+            btnVac.Enabled = m_valor;
+            btnExcTra.Enabled = m_valor;
+            btnIns.Enabled = m_valor;
+            btnLimpiar.Enabled = m_valor;
+            btnAus.Enabled = m_valor;
+            btnCargar.Enabled = m_valor;
+        }
+        #endregion
     }
 }
