@@ -21,10 +21,9 @@ namespace NominaSoprade.Modelos
                         {
                             if (!valvalido(m_Row[m_Column.ColumnName].ToString()) && !m_Row[m_Column.ColumnName].ToString().Equals(""))
                             {
-                                m_Resultados += "Valor invalido en la columna " + m_Column.ColumnName
+                                m_Resultados += "Valor '" + m_Row[m_Column.ColumnName].ToString() + "' invalido en la columna " + m_Column.ColumnName
                                     + " en el empleado " + m_Row[0].ToString() + " " + m_Row[1].ToString() + Environment.NewLine;
                             }
-
                         }
                     }
                     catch

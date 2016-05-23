@@ -84,10 +84,6 @@ namespace NominaSoprade
                     conexion.Close();
                     dgvOriginal.AllowUserToAddRows = false;
                     btnLimpiar.Enabled = true;
-                    btnVac.Enabled = true;
-                    btnExcTra.Enabled = true;
-                    btnIns.Enabled = true;
-                    btnAus.Enabled = true;
                     btnAnalizar.Enabled = true;
                 }
                 catch (Exception ex)
@@ -97,7 +93,7 @@ namespace NominaSoprade
             }
         }
         #endregion
-        #region SolAction
+        #region SolicitarAction
         public void ProcesarError(object o, DoWorkEventArgs e)
         {
             string m_valorError;
@@ -115,19 +111,27 @@ namespace NominaSoprade
             this.BeginInvoke(new Action(() =>
             {
                 this.Actionbtn(true);
-                if (!this.tbxPro.Equals(""))
+                if (!this.tbxPro.Text.Equals(""))
                 {
                     this.btnProcesar.Enabled = false;
+                    this.btnAus.Enabled = false;
+                    this.btnVac.Enabled = false;
+                    this.btnExcTra.Enabled = false;
+                    this.btnIns.Enabled = false;
+                }
+                else
+                {
+                    this.btnProcesar.Enabled = true;
+                    this.btnAus.Enabled = true;
+                    this.btnVac.Enabled = true;
+                    this.btnExcTra.Enabled = true;
+                    this.btnIns.Enabled = true;
                 }
             }));
-            MessageBox.Show("Proceso Terminado");
+            MessageBox.Show("Proceso Terminado","INARI Inteligencia Laboral",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
         private void Actionbtn(bool m_valor)
         {
-            btnProcesar.Enabled = m_valor;
-            btnVac.Enabled = m_valor;
-            btnExcTra.Enabled = m_valor;
-            btnIns.Enabled = m_valor;
             btnLimpiar.Enabled = m_valor;
             btnAus.Enabled = m_valor;
             btnCargar.Enabled = m_valor;

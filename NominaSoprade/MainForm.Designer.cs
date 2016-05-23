@@ -33,16 +33,16 @@
             this.tbpOriginal = new System.Windows.Forms.TabPage();
             this.dgvOriginal = new System.Windows.Forms.DataGridView();
             this.tbpNoPro = new System.Windows.Forms.TabPage();
+            this.btnIns = new System.Windows.Forms.Button();
+            this.btnExcTra = new System.Windows.Forms.Button();
+            this.btnAus = new System.Windows.Forms.Button();
+            this.btnVac = new System.Windows.Forms.Button();
             this.tbxPro = new System.Windows.Forms.TextBox();
             this.btnAnalizar = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnProcesar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
-            this.btnIns = new System.Windows.Forms.Button();
-            this.btnExcTra = new System.Windows.Forms.Button();
-            this.btnAus = new System.Windows.Forms.Button();
-            this.btnVac = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
             this.tbpOriginal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOriginal)).BeginInit();
@@ -94,12 +94,57 @@
             this.tbpNoPro.Text = "Procesado";
             this.tbpNoPro.UseVisualStyleBackColor = true;
             // 
+            // btnIns
+            // 
+            this.btnIns.Image = global::NominaSoprade.Properties.Resources.User_Folder;
+            this.btnIns.Location = new System.Drawing.Point(626, 185);
+            this.btnIns.Name = "btnIns";
+            this.btnIns.Size = new System.Drawing.Size(120, 55);
+            this.btnIns.TabIndex = 5;
+            this.btnIns.Text = "Insidencias";
+            this.btnIns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnIns.UseVisualStyleBackColor = true;
+            // 
+            // btnExcTra
+            // 
+            this.btnExcTra.Image = global::NominaSoprade.Properties.Resources.Timetable;
+            this.btnExcTra.Location = new System.Drawing.Point(626, 124);
+            this.btnExcTra.Name = "btnExcTra";
+            this.btnExcTra.Size = new System.Drawing.Size(120, 55);
+            this.btnExcTra.TabIndex = 4;
+            this.btnExcTra.Text = "Excepciones Trabajadas";
+            this.btnExcTra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExcTra.UseVisualStyleBackColor = true;
+            // 
+            // btnAus
+            // 
+            this.btnAus.Image = global::NominaSoprade.Properties.Resources.Mythique_Design_Original_Messenger_Absent_blue;
+            this.btnAus.Location = new System.Drawing.Point(626, 63);
+            this.btnAus.Name = "btnAus";
+            this.btnAus.Size = new System.Drawing.Size(120, 55);
+            this.btnAus.TabIndex = 3;
+            this.btnAus.Text = "Ausencias";
+            this.btnAus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAus.UseVisualStyleBackColor = true;
+            // 
+            // btnVac
+            // 
+            this.btnVac.Image = global::NominaSoprade.Properties.Resources.Corwins_Mountains_Of_Madness_Tracking_route;
+            this.btnVac.Location = new System.Drawing.Point(626, 6);
+            this.btnVac.Name = "btnVac";
+            this.btnVac.Size = new System.Drawing.Size(120, 51);
+            this.btnVac.TabIndex = 2;
+            this.btnVac.Text = "Vacaciones";
+            this.btnVac.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVac.UseVisualStyleBackColor = true;
+            // 
             // tbxPro
             // 
             this.tbxPro.Location = new System.Drawing.Point(6, 6);
             this.tbxPro.Multiline = true;
             this.tbxPro.Name = "tbxPro";
-            this.tbxPro.Size = new System.Drawing.Size(614, 436);
+            this.tbxPro.ReadOnly = true;
+            this.tbxPro.Size = new System.Drawing.Size(614, 445);
             this.tbxPro.TabIndex = 0;
             // 
             // btnAnalizar
@@ -164,50 +209,6 @@
             this.btnCargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
-            // 
-            // btnIns
-            // 
-            this.btnIns.Image = global::NominaSoprade.Properties.Resources.User_Folder;
-            this.btnIns.Location = new System.Drawing.Point(626, 185);
-            this.btnIns.Name = "btnIns";
-            this.btnIns.Size = new System.Drawing.Size(120, 55);
-            this.btnIns.TabIndex = 5;
-            this.btnIns.Text = "Insidencias";
-            this.btnIns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnIns.UseVisualStyleBackColor = true;
-            // 
-            // btnExcTra
-            // 
-            this.btnExcTra.Image = global::NominaSoprade.Properties.Resources.Timetable;
-            this.btnExcTra.Location = new System.Drawing.Point(626, 124);
-            this.btnExcTra.Name = "btnExcTra";
-            this.btnExcTra.Size = new System.Drawing.Size(120, 55);
-            this.btnExcTra.TabIndex = 4;
-            this.btnExcTra.Text = "Excepciones Trabajadas";
-            this.btnExcTra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcTra.UseVisualStyleBackColor = true;
-            // 
-            // btnAus
-            // 
-            this.btnAus.Image = global::NominaSoprade.Properties.Resources.Mythique_Design_Original_Messenger_Absent_blue;
-            this.btnAus.Location = new System.Drawing.Point(626, 63);
-            this.btnAus.Name = "btnAus";
-            this.btnAus.Size = new System.Drawing.Size(120, 55);
-            this.btnAus.TabIndex = 3;
-            this.btnAus.Text = "Ausencias";
-            this.btnAus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAus.UseVisualStyleBackColor = true;
-            // 
-            // btnVac
-            // 
-            this.btnVac.Image = global::NominaSoprade.Properties.Resources.Corwins_Mountains_Of_Madness_Tracking_route;
-            this.btnVac.Location = new System.Drawing.Point(626, 6);
-            this.btnVac.Name = "btnVac";
-            this.btnVac.Size = new System.Drawing.Size(120, 51);
-            this.btnVac.TabIndex = 2;
-            this.btnVac.Text = "Vacaciones";
-            this.btnVac.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVac.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
