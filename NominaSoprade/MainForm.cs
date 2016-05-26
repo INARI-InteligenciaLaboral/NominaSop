@@ -45,6 +45,14 @@ namespace NominaSoprade
         private void btnCargar_Click(object sender, EventArgs e)
         {
             solicitararchivo();
+            solicitarInfEmp();
+        }
+
+        private void solicitarInfEmp()
+        {
+            Modelos.SqlClass m_ConBD = new Modelos.SqlClass();
+            DataTable m_empleados = new DataTable();
+            m_empleados = m_ConBD.ObtenerEmp();
         }
         #endregion
         #region Docexcel

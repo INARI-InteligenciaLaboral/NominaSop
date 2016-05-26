@@ -8,3 +8,13 @@ F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.Properties.Resources
 F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.csproj.GenerateResource.Cache
 F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.exe
 F:\Code\NominaSoprade\NominaSoprade\obj\Debug\NominaSoprade.pdb
+E:\Code\NominaSop\NominaSoprade\bin\Debug\NominaSoprade.exe.config
+E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.csproj.ResolveComReference.cache
+E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.exe
+E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.pdb
+E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.csprojResolveAssemblyReference.cache
+E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.MainForm.resources
+E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.Properties.Resources.resources
+E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.csproj.GenerateResource.Cache
+E:\Code\NominaSop\NominaSoprade\bin\Debug\NominaSoprade.exe
+E:\Code\NominaSop\NominaSoprade\bin\Debug\NominaSoprade.pdb
