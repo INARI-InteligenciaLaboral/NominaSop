@@ -141,6 +141,10 @@ namespace NominaSoprade
             btnAus.Enabled = m_valor;
             btnCargar.Enabled = m_valor;
             btnAnalizar.Enabled = m_valor;
+            btnExcTra.Enabled = m_valor;
+            btnVac.Enabled = m_valor;
+            btnIns.Enabled = m_valor;
+            btnProcesar.Enabled = m_valor;
         }
         private void solicitarInfEmp()
         {
@@ -162,7 +166,7 @@ namespace NominaSoprade
         {
             if (m_Clave.Length < 5)
             {
-                for (int i = m_Clave.Length; i < 6; i++)
+                for (int i = m_Clave.Length; i < 5; i++)
                 {
                     m_Clave = "0" + m_Clave;
                 }

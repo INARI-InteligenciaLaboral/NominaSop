@@ -20,7 +20,7 @@ namespace NominaSoprade.Modelos
                     string m_command = "SELECT Cont.contIDEmpl, RTRIM(Emp.emplNombre) + ' ' + RTRIM(Emp.emplApPat) + ' ' + ";
                     m_command += "RTRIM(Emp.emplApMat) as NombreCompleto, Cont.contIDPues, Cont.contIDDeps ";
                     m_command += "FROM dbo.nomContratos as Cont INNER JOIN dbo.nomEmpleados AS Emp ON ";
-                    m_command += "Cont.contIDEmpl = Emp.emplIDEmpl WHERE contIDEmpl LIKE '130%' ";
+                    m_command += "Cont.contIDEmpl = Emp.emplIDEmpl WHERE (contIDEmpl LIKE '130%' Or contIDEmpl LIKE '131%') ";
                     //m_command += "AND Emp.emplEstatus = 'A'";
 
                     SqlCommand m_adapter = new SqlCommand(m_command, m_conexion);
