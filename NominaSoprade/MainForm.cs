@@ -29,7 +29,11 @@ namespace NominaSoprade
         #region eventosboton
         private void btnProcesar_Click(object sender, EventArgs e)
         {
-            
+            Actionbtn(false);
+            BackgroundWorker Procesar = new BackgroundWorker();
+            Procesar.DoWork += ProcesarError;
+            Procesar.RunWorkerCompleted += ProcesarTerminado;
+            Procesar.RunWorkerAsync();
         }
         private void btnAnalizar_Click(object sender, EventArgs e)
         {
@@ -67,7 +71,7 @@ namespace NominaSoprade
             DataSet dataSet = null;
             OleDbDataAdapter dataAdapter = null;
             string hoja = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el nombre de la hoja que desea abrir:", this.Text, "Hoja1");
-            string consultaHojaExcel = "Select * from [" + hoja + "$]";
+            string consultaHojaExcel = "Select *, '' AS DEPARTAMENTO, '' AS PUESTO from [" + hoja + "$]";
             string cadenaConexionArchivoExcel = "provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + archivo + "';Extended Properties=Excel 12.0;";
             if (string.IsNullOrEmpty(hoja))
             {
@@ -153,12 +157,12 @@ namespace NominaSoprade
             m_empleados = m_ConBD.ObtenerEmp();
             for (int i = 0; i < dgvOriginal.Rows.Count; i++)
             {
-                DataRow[] result = m_empleados.Select("contIDEmpl LIKE '%" + ClaEmp(dgvOriginal.Rows[i].Cells[0].Value.ToString()) + "'");
+                DataRow[] result = m_empleados.Select("contIDEmpl LIKE '%" + ClaEmp(dgvOriginal.Rows[i].Cells[2].Value.ToString()) + "'");
                 foreach (DataRow rowresult in result)
                 {
                     dgvOriginal.Rows[i].Cells["PUESTO"].Value = rowresult[2];
                     dgvOriginal.Rows[i].Cells["DEPARTAMENTO"].Value = rowresult[3];
-                    dgvOriginal.Rows[i].Cells[0].Value = rowresult[0];
+                    dgvOriginal.Rows[i].Cells[2].Value = rowresult[0];
                 }
             }
         }
