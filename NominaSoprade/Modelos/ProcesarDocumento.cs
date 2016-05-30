@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Data;
 using System.Windows.Forms;
 
@@ -16,6 +17,7 @@ namespace NominaSoprade.Modelos
                     DateTime? m_Fecha = null;
                     try
                     {
+                        ArrayList ListaInsidencias = new ArrayList();
                         m_Fecha = Convert.ToDateTime(m_Column.ColumnName);
                         if (m_Fecha.HasValue)
                         {

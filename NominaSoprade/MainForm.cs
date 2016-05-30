@@ -47,13 +47,6 @@ namespace NominaSoprade
             solicitararchivo();
             solicitarInfEmp();
         }
-
-        private void solicitarInfEmp()
-        {
-            Modelos.SqlClass m_ConBD = new Modelos.SqlClass();
-            DataTable m_empleados = new DataTable();
-            m_empleados = m_ConBD.ObtenerEmp();
-        }
         #endregion
         #region Docexcel
         private void solicitararchivo()
@@ -144,6 +137,12 @@ namespace NominaSoprade
             btnAus.Enabled = m_valor;
             btnCargar.Enabled = m_valor;
             btnAnalizar.Enabled = m_valor;
+        }
+        private void solicitarInfEmp()
+        {
+            Modelos.SqlClass m_ConBD = new Modelos.SqlClass();
+            DataTable m_empleados = new DataTable();
+            m_empleados = m_ConBD.ObtenerEmp();
         }
         #endregion
     }

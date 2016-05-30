@@ -56,8 +56,14 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\Ausencias.cs" />
+    <Compile Include="Modelos\Errores.cs" />
+    <Compile Include="Modelos\ExcepcionTrabajada.cs" />
+    <Compile Include="Modelos\Insidencias.cs" />
     <Compile Include="Modelos\ProcesarDocumento.cs" />
+    <Compile Include="Modelos\Registros.cs" />
     <Compile Include="Modelos\SqlClass.cs" />
+    <Compile Include="Modelos\Vacaciones.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
