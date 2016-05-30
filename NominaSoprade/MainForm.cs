@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
@@ -86,6 +87,8 @@ namespace NominaSoprade
                     dgvOriginal.AllowUserToAddRows = false;
                     btnLimpiar.Enabled = true;
                     btnAnalizar.Enabled = true;
+                    dgvOriginal.Columns.Add("PUESTO","PUESTO");
+                    dgvOriginal.Columns.Add("DEPARTAMENTO", "DEPARTAMENTO");
                 }
                 catch (Exception ex)
                 {
@@ -97,11 +100,12 @@ namespace NominaSoprade
         #region SolicitarAction
         public void ProcesarError(object o, DoWorkEventArgs e)
         {
-            string m_valorError;
+            string m_valorError="";
             Modelos.ProcesarDocumento m_Procesar = new Modelos.ProcesarDocumento();
             DataTable dataTabla = new DataTable();
             dataTabla = dgvOriginal.DataSource as DataTable;
-            m_valorError =  m_Procesar.procesamiento(dataTabla);
+            ArrayList ListaInsidencias = new ArrayList();
+            ListaInsidencias =  m_Procesar.procesamiento(dataTabla);
             this.BeginInvoke(new Action(() =>
             {
                 this.tbxPro.Text = m_valorError;
@@ -143,6 +147,27 @@ namespace NominaSoprade
             Modelos.SqlClass m_ConBD = new Modelos.SqlClass();
             DataTable m_empleados = new DataTable();
             m_empleados = m_ConBD.ObtenerEmp();
+            for (int i = 0; i < dgvOriginal.Rows.Count; i++)
+            {
+                DataRow[] result = m_empleados.Select("contIDEmpl LIKE '%" + ClaEmp(dgvOriginal.Rows[i].Cells[0].Value.ToString()) + "'");
+                foreach (DataRow rowresult in result)
+                {
+                    dgvOriginal.Rows[i].Cells["PUESTO"].Value = rowresult[2];
+                    dgvOriginal.Rows[i].Cells["DEPARTAMENTO"].Value = rowresult[3];
+                    dgvOriginal.Rows[i].Cells[0].Value = rowresult[0];
+                }
+            }
+        }
+        private string ClaEmp(string m_Clave)
+        {
+            if (m_Clave.Length < 5)
+            {
+                for (int i = m_Clave.Length; i < 6; i++)
+                {
+                    m_Clave = "0" + m_Clave;
+                }
+            }
+            return m_Clave;
         }
         #endregion
     }
