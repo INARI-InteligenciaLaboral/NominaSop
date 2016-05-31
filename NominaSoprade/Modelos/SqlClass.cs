@@ -61,5 +61,40 @@ namespace NominaSoprade.Modelos
             }
             return m_StrCen;
         }
+        public DateTime? ObtenerPeri()
+        {
+            string m_command = "SELECT periFecIni FROM dbo.nomPeriodos WHERE periIDNomi = 'ORD' AND periIDPcal = '5601' ";
+                   m_command += "AND @FechaInicio BETWEEN periFecIni AND periFecFin";
+            DateTime? m_FechaInicial = null; 
+            using (SqlConnection m_conexion = new SqlConnection(m_cadena))
+            {
+                SqlCommand command = new SqlCommand(m_command, m_conexion);
+                command.Parameters.Add("@FechaInicio", SqlDbType.Date);
+                command.Parameters["@FechaInicio"].Value = m_FechaInc;
+                DataTable m_Periodo = new DataTable();
+                try
+                {
+                    m_conexion.Open();
+                    m_Periodo.Load(command.ExecuteReader());
+                    m_conexion.Close();
+                    if (m_Periodo.Rows.Count > 0)
+                    {
+                        foreach (DataRow m_Row in m_Periodo.Rows)
+                        {
+                            m_FechaInicial = DateTime.Parse(m_Row[0].ToString());
+                        }
+                    }
+                }
+                catch {}
+            }
+            if (m_FechaInicial.HasValue)
+            {
+                return m_FechaInicial.Value;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

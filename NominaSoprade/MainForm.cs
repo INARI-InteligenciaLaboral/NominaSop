@@ -10,6 +10,7 @@ namespace NominaSoprade
     public partial class MainForm : Form
     {
         private string m_CentrosCosto;
+        private ArrayList ListaInsidencias = new ArrayList();
         public MainForm()
         {
             InitializeComponent();
@@ -109,10 +110,17 @@ namespace NominaSoprade
             Modelos.ProcesarDocumento m_Procesar = new Modelos.ProcesarDocumento();
             DataTable dataTabla = new DataTable();
             dataTabla = dgvOriginal.DataSource as DataTable;
-            ArrayList ListaInsidencias = new ArrayList();
             ListaInsidencias =  m_Procesar.procesamiento(dataTabla);
             this.BeginInvoke(new Action(() =>
             {
+                foreach(var obj in ListaInsidencias)
+                {
+                    if (obj is Modelos.Errores)
+                    {
+                        var m_Error = (Modelos.Errores)obj;
+                        m_valorError += "Error con el empleado " + m_Error.ID_Empleado + " " +  m_Error.Nombre + " en la columna " + m_Error.Columna + " con valor " + m_Error.Concepto + System.Environment.NewLine;
+                    }
+                }
                 this.tbxPro.Text = m_valorError;
             }));
         }
@@ -121,22 +129,11 @@ namespace NominaSoprade
             this.BeginInvoke(new Action(() =>
             {
                 this.Actionbtn(true);
-                if (!this.tbxPro.Text.Equals(""))
-                {
-                    this.btnProcesar.Enabled = false;
-                    this.btnAus.Enabled = false;
-                    this.btnVac.Enabled = false;
-                    this.btnExcTra.Enabled = false;
-                    this.btnIns.Enabled = false;
-                }
-                else
-                {
-                    this.btnProcesar.Enabled = true;
-                    this.btnAus.Enabled = true;
-                    this.btnVac.Enabled = true;
-                    this.btnExcTra.Enabled = true;
-                    this.btnIns.Enabled = true;
-                }
+                this.btnProcesar.Enabled = true;
+                this.btnAus.Enabled = true;
+                this.btnVac.Enabled = true;
+                this.btnExcTra.Enabled = true;
+                this.btnIns.Enabled = true;
             }));
             MessageBox.Show("Proceso Terminado","INARI Inteligencia Laboral",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
@@ -154,7 +151,7 @@ namespace NominaSoprade
         private void solicitarInfEmp()
         {
             Modelos.SqlClass m_ConBD = new Modelos.SqlClass();
-            DataTable m_empleados = new DataTable();
+            DataTable m_empleados = new DataTable(); 
             m_empleados = m_ConBD.ObtenerEmp();
             for (int i = 0; i < dgvOriginal.Rows.Count; i++)
             {
