@@ -9,6 +9,7 @@ namespace NominaSoprade
 {
     public partial class MainForm : Form
     {
+        private string m_CentrosCosto;
         public MainForm()
         {
             InitializeComponent();
@@ -165,6 +166,7 @@ namespace NominaSoprade
                     dgvOriginal.Rows[i].Cells[2].Value = rowresult[0];
                 }
             }
+            m_CentrosCosto = m_ConBD.ObtCentroCosto();
         }
         private string ClaEmp(string m_Clave)
         {
