@@ -97,5 +97,30 @@ namespace NominaSoprade.Modelos
                 return null;
             }
         }
+        public DataTable ObtenerDiasAsueto(DateTime m_FechaInicio)
+        {
+            DataTable m_empleados = new DataTable();
+            try
+            {
+                using (SqlConnection m_conexion = new SqlConnection(m_cadena))
+                {
+                    m_conexion.Open();
+                    string m_command = "SELECT * FROM [dbo].[nomDiasAsueto] WHERE dasuFecha BETWEEN @FechaInicio AND @FechaFin";
+
+                    SqlCommand m_adapter = new SqlCommand(m_command, m_conexion);
+                    m_adapter.Parameters.Add("@FechaInicio", SqlDbType.Date);
+                    m_adapter.Parameters.Add("@FechaFin", SqlDbType.Date);
+                    m_adapter.Parameters["@FechaInicio"].Value = m_FechaInicio;
+                    m_adapter.Parameters["@FechaFin"].Value = m_FechaInicio.AddDays(15);
+                    m_empleados.Load(m_adapter.ExecuteReader());
+                    m_conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de conexión \n" + ex.Message);
+            }
+            return m_empleados;
+        }
     }
 }

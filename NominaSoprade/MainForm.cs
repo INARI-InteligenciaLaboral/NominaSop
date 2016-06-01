@@ -40,6 +40,7 @@ namespace NominaSoprade
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Inicial();
+            dgvOriginal.ClearSelection();
         }
         private void btnCargar_Click(object sender, EventArgs e)
         {
@@ -75,6 +76,10 @@ namespace NominaSoprade
             {
                 try
                 {
+                    if (dgvOriginal.Columns.Count > 0)
+                    {
+                        dgvOriginal.ClearSelection();
+                    }
                     conexion = new OleDbConnection(cadenaConexionArchivoExcel);
                     conexion.Open();
                     dataAdapter = new OleDbDataAdapter(consultaHojaExcel, conexion);
@@ -85,8 +90,6 @@ namespace NominaSoprade
                     dgvOriginal.AllowUserToAddRows = false;
                     btnLimpiar.Enabled = true;
                     btnAnalizar.Enabled = true;
-                    dgvOriginal.Columns.Add("PUESTO","PUESTO");
-                    dgvOriginal.Columns.Add("DEPARTAMENTO", "DEPARTAMENTO");
                 }
                 catch 
                 {
@@ -128,8 +131,8 @@ namespace NominaSoprade
                     this.btnVac.Enabled = true;
                     this.btnExcTra.Enabled = true;
                     this.btnIns.Enabled = true;
-                    Aceptar.MensajeAceptar("Proceso Terminado Correctamente");
                     tbcMain.SelectedIndex = 1;
+                    Aceptar.MensajeAceptar("Proceso Terminado Correctamente");
                 }
                 else
                 {
@@ -138,8 +141,8 @@ namespace NominaSoprade
                     this.btnVac.Enabled = true;
                     this.btnExcTra.Enabled = true;
                     this.btnIns.Enabled = true;
-                    Information.MensajeInformation("Proceso terminado con insidencias\n no calculadas revisar la\n pestaña Proceso para más\n informacion");
                     tbcMain.SelectedIndex = 1;
+                    Information.MensajeInformation("Proceso terminado con insidencias\n no calculadas revisar la\n pestaña Proceso para más\n informacion");
                 }
             }));
             

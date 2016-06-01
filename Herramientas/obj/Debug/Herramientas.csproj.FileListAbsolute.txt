@@ -11,3 +11,5 @@ E:\Code\NominaSop\Herramientas\obj\Debug\Herramientas.csproj.GenerateResource.Ca
 E:\Code\NominaSop\Herramientas\obj\Debug\yo\Herramientas.resources.dll
 E:\Code\NominaSop\Herramientas\obj\Debug\Herramientas.dll
 E:\Code\NominaSop\Herramientas\obj\Debug\Herramientas.pdb
+E:\Code\NominaSop\Herramientas\obj\Debug\Herramientas.csprojResolveAssemblyReference.cache
+E:\Code\NominaSop\Herramientas\obj\Debug\Herramientas.Forms.FormQuestion.resources
