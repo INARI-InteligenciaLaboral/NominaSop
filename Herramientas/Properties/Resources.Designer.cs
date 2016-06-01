@@ -63,6 +63,16 @@ namespace Herramientas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ambox_blue_question {
+            get {
+                object obj = ResourceManager.GetObject("Ambox_blue_question", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ck_tick {
             get {
                 object obj = ResourceManager.GetObject("ck_tick", resourceCulture);
