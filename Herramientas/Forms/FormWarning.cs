@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Herramientas.Forms
 {
-    public partial class Aceptar : Form
+    public partial class FormWarning : Form
     {
-        public Aceptar()
+        public FormWarning()
         {
             InitializeComponent();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

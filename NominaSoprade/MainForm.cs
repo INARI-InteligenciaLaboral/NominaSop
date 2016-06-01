@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using Herramientas.Clases;
 
 namespace NominaSoprade
 {
@@ -19,7 +20,6 @@ namespace NominaSoprade
         private void Inicial()
         {
             dgvOriginal.DataSource = null;
-            btnProcesar.Enabled = false;
             btnVac.Enabled = false;
             btnExcTra.Enabled = false;
             btnIns.Enabled = false;
@@ -29,14 +29,6 @@ namespace NominaSoprade
             tbxPro.Text = "";
         }
         #region eventosboton
-        private void btnProcesar_Click(object sender, EventArgs e)
-        {
-            Actionbtn(false);
-            BackgroundWorker Procesar = new BackgroundWorker();
-            Procesar.DoWork += ProcesarError;
-            Procesar.RunWorkerCompleted += ProcesarTerminado;
-            Procesar.RunWorkerAsync();
-        }
         private void btnAnalizar_Click(object sender, EventArgs e)
         {
             Actionbtn(false);
@@ -72,12 +64,12 @@ namespace NominaSoprade
             OleDbConnection conexion = null;
             DataSet dataSet = null;
             OleDbDataAdapter dataAdapter = null;
-            string hoja = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el nombre de la hoja que desea abrir:", this.Text, "Hoja1");
+            string hoja = Solicitar.MensajeSolicitar("Ingrese el nombre de la\nhoja que desea abrir:");
             string consultaHojaExcel = "Select *, '' AS DEPARTAMENTO, '' AS PUESTO from [" + hoja + "$]";
             string cadenaConexionArchivoExcel = "provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + archivo + "';Extended Properties=Excel 12.0;";
             if (string.IsNullOrEmpty(hoja))
             {
-                MessageBox.Show("No hay una hoja para leer");
+                Warning.MensajeWarning("No hay una hoja para leer");
             }
             else
             {
@@ -96,9 +88,10 @@ namespace NominaSoprade
                     dgvOriginal.Columns.Add("PUESTO","PUESTO");
                     dgvOriginal.Columns.Add("DEPARTAMENTO", "DEPARTAMENTO");
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    MessageBox.Show("Error, Verificar el archivo o el nombre de la hoja \n" + ex.Message, this.Text);
+                    conexion.Close();
+                    Warning.MensajeWarning("Verificar el archivo o \nel nombre de la hoja \n");
                 }
             }
         }
@@ -128,14 +121,28 @@ namespace NominaSoprade
         {
             this.BeginInvoke(new Action(() =>
             {
-                this.Actionbtn(true);
-                this.btnProcesar.Enabled = true;
-                this.btnAus.Enabled = true;
-                this.btnVac.Enabled = true;
-                this.btnExcTra.Enabled = true;
-                this.btnIns.Enabled = true;
+                if(this.tbxPro.Text.Equals(""))
+                {
+                    this.Actionbtn(true);
+                    this.btnAus.Enabled = true;
+                    this.btnVac.Enabled = true;
+                    this.btnExcTra.Enabled = true;
+                    this.btnIns.Enabled = true;
+                    Aceptar.MensajeAceptar("Proceso Terminado Correctamente");
+                    tbcMain.SelectedIndex = 1;
+                }
+                else
+                {
+                    this.Actionbtn(true);
+                    this.btnAus.Enabled = true;
+                    this.btnVac.Enabled = true;
+                    this.btnExcTra.Enabled = true;
+                    this.btnIns.Enabled = true;
+                    Information.MensajeInformation("Proceso terminado con insidencias\n no calculadas revisar la\n pestaña Proceso para más\n informacion");
+                    tbcMain.SelectedIndex = 1;
+                }
             }));
-            MessageBox.Show("Proceso Terminado","INARI Inteligencia Laboral",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            
         }
         private void Actionbtn(bool m_valor)
         {
@@ -146,7 +153,6 @@ namespace NominaSoprade
             btnExcTra.Enabled = m_valor;
             btnVac.Enabled = m_valor;
             btnIns.Enabled = m_valor;
-            btnProcesar.Enabled = m_valor;
         }
         private void solicitarInfEmp()
         {

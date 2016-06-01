@@ -61,16 +61,17 @@ namespace NominaSoprade.Modelos
             }
             return m_StrCen;
         }
-        public DateTime? ObtenerPeri()
+        public DateTime? ObtenerPeri(DateTime m_Fecha)
         {
             string m_command = "SELECT periFecIni FROM dbo.nomPeriodos WHERE periIDNomi = 'ORD' AND periIDPcal = '5601' ";
                    m_command += "AND @FechaInicio BETWEEN periFecIni AND periFecFin";
-            DateTime? m_FechaInicial = null; 
+            DateTime? m_FechaInicial = null;
+            m_FechaInicial = m_Fecha;
             using (SqlConnection m_conexion = new SqlConnection(m_cadena))
             {
                 SqlCommand command = new SqlCommand(m_command, m_conexion);
                 command.Parameters.Add("@FechaInicio", SqlDbType.Date);
-                command.Parameters["@FechaInicio"].Value = m_FechaInc;
+                command.Parameters["@FechaInicio"].Value = m_FechaInicial;
                 DataTable m_Periodo = new DataTable();
                 try
                 {

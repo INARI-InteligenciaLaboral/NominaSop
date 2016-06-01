@@ -40,7 +40,6 @@
             this.tbxPro = new System.Windows.Forms.TextBox();
             this.btnAnalizar = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
-            this.btnProcesar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
             this.tbcMain.SuspendLayout();
@@ -172,24 +171,11 @@
             this.pbxLogo.TabIndex = 4;
             this.pbxLogo.TabStop = false;
             // 
-            // btnProcesar
-            // 
-            this.btnProcesar.Enabled = false;
-            this.btnProcesar.Image = global::NominaSoprade.Properties.Resources.Custom_Icon_Design_Flatastic_9_Generate_tables;
-            this.btnProcesar.Location = new System.Drawing.Point(268, 12);
-            this.btnProcesar.Name = "btnProcesar";
-            this.btnProcesar.Size = new System.Drawing.Size(120, 38);
-            this.btnProcesar.TabIndex = 3;
-            this.btnProcesar.Text = "Procesar";
-            this.btnProcesar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProcesar.UseVisualStyleBackColor = true;
-            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
-            // 
             // btnLimpiar
             // 
             this.btnLimpiar.Enabled = false;
             this.btnLimpiar.Image = global::NominaSoprade.Properties.Resources.Seanau_Email_Clear;
-            this.btnLimpiar.Location = new System.Drawing.Point(394, 12);
+            this.btnLimpiar.Location = new System.Drawing.Point(268, 12);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(120, 38);
             this.btnLimpiar.TabIndex = 2;
@@ -218,7 +204,6 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.btnAnalizar);
             this.Controls.Add(this.pbxLogo);
-            this.Controls.Add(this.btnProcesar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.tbcMain);
@@ -244,7 +229,6 @@
         private System.Windows.Forms.TabPage tbpNoPro;
         private System.Windows.Forms.Button btnCargar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnProcesar;
         private System.Windows.Forms.PictureBox pbxLogo;
         private System.Windows.Forms.DataGridView dgvOriginal;
         private System.Windows.Forms.Button btnVac;

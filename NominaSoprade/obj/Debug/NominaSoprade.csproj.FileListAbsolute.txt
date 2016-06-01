@@ -18,3 +18,6 @@ E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.Properties.Resources.res
 E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.csproj.GenerateResource.Cache
 E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.exe
 E:\Code\NominaSop\NominaSoprade\obj\Debug\NominaSoprade.pdb
+E:\Code\NominaSop\NominaSoprade\bin\Debug\Herramientas.dll
+E:\Code\NominaSop\NominaSoprade\bin\Debug\Herramientas.pdb
+E:\Code\NominaSop\NominaSoprade\bin\Debug\yo\Herramientas.resources.dll

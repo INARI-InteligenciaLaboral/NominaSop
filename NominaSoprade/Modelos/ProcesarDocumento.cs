@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Data;
-using System.Windows.Forms;
 
 namespace NominaSoprade.Modelos
 {
@@ -26,10 +25,10 @@ namespace NominaSoprade.Modelos
                             if (!m_FechaInsi.HasValue)
                             {
                                 SqlClass m_ConBd = new SqlClass();
-                                m_FechaInsi = m_ConBd.ObtenerPeri();
+                                m_FechaInsi = m_ConBd.ObtenerPeri(DateTime.Parse(m_Column.ColumnName));
                                 if (!m_FechaInsi.HasValue)
                                 {
-                                    MessageBox.Show("No existe Periodo Ordinario para estas fechas");
+                                    Herramientas.Clases.Information.MensajeInformation("No existe Periodo Ordinario \npara estas fechas");
                                     m_FechaInsi = DateTime.Now;
                                 }
                             }
