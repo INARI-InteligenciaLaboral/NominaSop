@@ -103,6 +103,7 @@
             this.btnIns.Text = "Insidencias";
             this.btnIns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnIns.UseVisualStyleBackColor = true;
+            this.btnIns.Click += new System.EventHandler(this.btnIns_Click);
             // 
             // btnExcTra
             // 
@@ -114,6 +115,7 @@
             this.btnExcTra.Text = "Excepciones Trabajadas";
             this.btnExcTra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcTra.UseVisualStyleBackColor = true;
+            this.btnExcTra.Click += new System.EventHandler(this.btnExcTra_Click);
             // 
             // btnAus
             // 
@@ -125,6 +127,7 @@
             this.btnAus.Text = "Ausencias";
             this.btnAus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAus.UseVisualStyleBackColor = true;
+            this.btnAus.Click += new System.EventHandler(this.btnAus_Click);
             // 
             // btnVac
             // 
@@ -136,6 +139,7 @@
             this.btnVac.Text = "Vacaciones";
             this.btnVac.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVac.UseVisualStyleBackColor = true;
+            this.btnVac.Click += new System.EventHandler(this.btnVac_Click);
             // 
             // tbxPro
             // 

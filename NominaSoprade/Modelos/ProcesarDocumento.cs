@@ -9,6 +9,7 @@ namespace NominaSoprade.Modelos
         public ArrayList procesamiento(DataTable m_DataGrid)
         {
             DateTime? m_FechaInsi = null;
+            DataTable m_DiasAuseto = new DataTable();
             ArrayList ListaInsidencias = new ArrayList();
             foreach (DataRow m_Row in m_DataGrid.Rows)
             {
@@ -31,6 +32,7 @@ namespace NominaSoprade.Modelos
                                     Herramientas.Clases.Information.MensajeInformation("No existe Periodo Ordinario \npara estas fechas");
                                     m_FechaInsi = DateTime.Now;
                                 }
+                                m_DiasAuseto = m_ConBd.ObtenerDiasAsueto(m_FechaInsi.Value);
                             }
                             if (!valvalido(m_Row[m_Column.ColumnName].ToString()) && !m_Row[m_Column.ColumnName].ToString().Equals(""))
                             {
@@ -53,7 +55,7 @@ namespace NominaSoprade.Modelos
                                     }
                                     else
                                     {
-                                        if (m_fecvac.Value.AddDays(1) == Convert.ToDateTime(m_Column.ColumnName))
+                                        if (m_fecvac.Value.AddDays(m_vac) == Convert.ToDateTime(m_Column.ColumnName))
                                         {
                                             m_vac++;
                                         }
@@ -74,7 +76,7 @@ namespace NominaSoprade.Modelos
                                     }
                                     else
                                     {
-                                        if (m_fecf.Value.AddDays(1) == Convert.ToDateTime(m_Column.ColumnName))
+                                        if (m_fecf.Value.AddDays(m_f) == Convert.ToDateTime(m_Column.ColumnName))
                                         {
                                             m_f++;
                                         }
@@ -95,7 +97,7 @@ namespace NominaSoprade.Modelos
                                     }
                                     else
                                     {
-                                        if (m_fecpsg.Value.AddDays(1) == Convert.ToDateTime(m_Column.ColumnName))
+                                        if (m_fecpsg.Value.AddDays(m_psg) == Convert.ToDateTime(m_Column.ColumnName))
                                         {
                                             m_psg++;
                                         }
@@ -116,7 +118,7 @@ namespace NominaSoprade.Modelos
                                     }
                                     else
                                     {
-                                        if (m_fecpgs.Value.AddDays(1) == Convert.ToDateTime(m_Column.ColumnName))
+                                        if (m_fecpgs.Value.AddDays(m_pgs) == Convert.ToDateTime(m_Column.ColumnName))
                                         {
                                             m_pgs++;
                                         }
@@ -133,10 +135,11 @@ namespace NominaSoprade.Modelos
                                     if (!m_fecr.HasValue)
                                     {
                                         m_fecr = Convert.ToDateTime(m_Column.ColumnName);
+                                        m_r++;
                                     }
                                     else
                                     {
-                                        if (m_fecr.Value.AddDays(1) == Convert.ToDateTime(m_Column.ColumnName))
+                                        if (m_fecr.Value.AddDays(m_r) == Convert.ToDateTime(m_Column.ColumnName))
                                         {
                                             m_r++;
                                         }
@@ -145,6 +148,19 @@ namespace NominaSoprade.Modelos
                                             ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF5", Fecha = m_fecr.Value, Cantidad = m_r });
                                             m_fecr = Convert.ToDateTime(m_Column.ColumnName);
                                             m_r = 1;
+                                        }
+                                    }
+                                }
+                                else if (m_Row[m_Column.ColumnName].ToString().ToUpper().Equals("A"))
+                                {
+                                    if (m_DiasAuseto.Rows.Count > 0)
+                                    {
+                                        foreach(DataRow m_Filas in m_DiasAuseto.Rows)
+                                        {
+                                            if(DateTime.Parse(m_Filas[0].ToString()) == DateTime.Parse(m_Column.ColumnName))
+                                            {
+                                                ListaInsidencias.Add(new ExcepcionTrabajada() { ID_Empleado = Int32.Parse(m_Row[2].ToString()) , Concepto = "CD2", Fecha = DateTime.Parse(m_Column.ColumnName), Min_Retardo = 1 });
+                                            }
                                         }
                                     }
                                 }

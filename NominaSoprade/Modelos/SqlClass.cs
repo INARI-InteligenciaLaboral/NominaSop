@@ -105,7 +105,7 @@ namespace NominaSoprade.Modelos
                 using (SqlConnection m_conexion = new SqlConnection(m_cadena))
                 {
                     m_conexion.Open();
-                    string m_command = "SELECT * FROM [dbo].[nomDiasAsueto] WHERE dasuFecha BETWEEN @FechaInicio AND @FechaFin";
+                    string m_command = "SELECT dasuFecha FROM [dbo].[nomDiasAsueto] WHERE dasuFecha BETWEEN @FechaInicio AND @FechaFin";
 
                     SqlCommand m_adapter = new SqlCommand(m_command, m_conexion);
                     m_adapter.Parameters.Add("@FechaInicio", SqlDbType.Date);

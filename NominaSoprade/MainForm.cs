@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using Herramientas.Clases;
+using System.IO;
 
 namespace NominaSoprade
 {
@@ -131,7 +132,7 @@ namespace NominaSoprade
                     this.btnVac.Enabled = true;
                     this.btnExcTra.Enabled = true;
                     this.btnIns.Enabled = true;
-                    tbcMain.SelectedIndex = 1;
+                    this.tbcMain.SelectedIndex = 1;
                     Aceptar.MensajeAceptar("Proceso Terminado Correctamente");
                 }
                 else
@@ -141,7 +142,7 @@ namespace NominaSoprade
                     this.btnVac.Enabled = true;
                     this.btnExcTra.Enabled = true;
                     this.btnIns.Enabled = true;
-                    tbcMain.SelectedIndex = 1;
+                    this.tbcMain.SelectedIndex = 1;
                     Information.MensajeInformation("Proceso terminado con insidencias\n no calculadas revisar la\n pestaña Proceso para más\n informacion");
                 }
             }));
@@ -186,5 +187,132 @@ namespace NominaSoprade
             return m_Clave;
         }
         #endregion
+
+        private void btnVac_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog m_Archivo = new SaveFileDialog();
+            StreamWriter l_Archivo;
+            m_Archivo.Filter = "XLS|*.xls";
+            m_Archivo.Title = string.Format(" {0} - {1} ", "Inari", "Vacaciones");
+            try
+            {
+                if (m_Archivo.ShowDialog() == DialogResult.OK)
+                    {
+                        if (m_Archivo.FileName.Equals(""))
+                            m_Archivo.FileName = "Vacaciones";
+                        l_Archivo = new StreamWriter(m_Archivo.FileName.Replace(".", String.Concat("", ".")));
+                        l_Archivo.WriteLine("EMPLEADO\tCONCEPTO\tFECHA_INICIO\tDIAS" );
+                        foreach (var obj in ListaInsidencias)
+                        {
+                            if (obj is Modelos.Vacaciones)
+                            {
+                                var m_Vaciones = (Modelos.Vacaciones)obj;
+                                l_Archivo.WriteLine(m_Vaciones.ID_Empleado + "\t"+ m_Vaciones.Concepto + "\t" + m_Vaciones.Fecha.ToString("dd/MM/yyyy") + "\t" + m_Vaciones.Dias);
+                            }
+                        }
+                        l_Archivo.Close();
+                    }
+                Aceptar.MensajeAceptar("Archivo guardado correctamente");
+            }
+            catch
+            {
+                Warning.MensajeWarning("Error al crear archivos");
+            }
+            
+        }
+        private void btnAus_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog m_Archivo = new SaveFileDialog();
+            StreamWriter l_Archivo;
+            m_Archivo.Filter = "XLS|*.xls";
+            m_Archivo.Title = string.Format(" {0} - {1} ", "Inari", "Ausencias");
+            try
+            { 
+                if (m_Archivo.ShowDialog() == DialogResult.OK)
+                {
+                    if (m_Archivo.FileName.Equals(""))
+                        m_Archivo.FileName = "Ausencias";
+                    l_Archivo = new StreamWriter(m_Archivo.FileName.Replace(".", String.Concat("", ".")));
+                    l_Archivo.WriteLine("EMPLEADO\tTIPO_AUSENCIA\tFECHA_INICIO\tCANTIDAD");
+                    foreach (var obj in ListaInsidencias)
+                    {
+                        if (obj is Modelos.Ausencias)
+                        {
+                            var m_Ausencias = (Modelos.Ausencias)obj;
+                            l_Archivo.WriteLine(m_Ausencias.ID_Empleado + "\t" + m_Ausencias.Concepto + "\t" + m_Ausencias.Fecha.ToString("dd/MM/yyyy") + "\t" + m_Ausencias.Cantidad);
+                        }
+                    }
+                    l_Archivo.Close();
+                }
+                Aceptar.MensajeAceptar("Archivo guardado correctamente");
+            }
+            catch
+            {
+                Warning.MensajeWarning("Error al crear archivos");
+            }
+}
+        private void btnIns_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog m_Archivo = new SaveFileDialog();
+            StreamWriter l_Archivo;
+            m_Archivo.Filter = "XLS|*.xls";
+            m_Archivo.Title = string.Format(" {0} - {1} ", "Inari", "Insidencias");
+            try
+            {
+                if (m_Archivo.ShowDialog() == DialogResult.OK)
+                {
+                    if (m_Archivo.FileName.Equals(""))
+                        m_Archivo.FileName = "Insidencias";
+                    l_Archivo = new StreamWriter(m_Archivo.FileName.Replace(".", String.Concat("", ".")));
+                    l_Archivo.WriteLine("EMPLEADO\tCONCEPTO\tIMPORTE\tFECHA\tCENTRO_COSTO\tDEPARTAMENTO\tPUESTO");
+                    foreach (var obj in ListaInsidencias)
+                    {
+                        if (obj is Modelos.Insidencias)
+                        {
+                            var m_Insidencias = (Modelos.Insidencias)obj;
+                            l_Archivo.WriteLine(m_Insidencias.ID_Empleado + "\t" + m_Insidencias.Concepto + "\t" + m_Insidencias.Importe + "\t" + m_Insidencias.Fecha.ToString("dd/MM/yyyy") + "\t" + m_CentrosCosto + "\t" + m_Insidencias.Departamento + "\t" + m_Insidencias.Puesto);
+                        }
+                    }
+                    l_Archivo.Close();
+                }
+                Aceptar.MensajeAceptar("Archivo guardado correctamente");
+            }
+            catch
+            {
+                Warning.MensajeWarning("Error al crear archivos");
+            }
+}
+
+        private void btnExcTra_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog m_Archivo = new SaveFileDialog();
+            StreamWriter l_Archivo;
+            m_Archivo.Filter = "XLS|*.xls";
+            m_Archivo.Title = string.Format(" {0} - {1} ", "Inari", "Excepciones Trabajadas");
+            try
+            {
+                if (m_Archivo.ShowDialog() == DialogResult.OK)
+                {
+                    if (m_Archivo.FileName.Equals(""))
+                        m_Archivo.FileName = "Excepciones Trabajadas";
+                    l_Archivo = new StreamWriter(m_Archivo.FileName.Replace(".", String.Concat("", ".")));
+                    l_Archivo.WriteLine("EMPLEADO\tTIPO_EXCEP_TRABAJADA\tFECHA\tMINUTOS_RETARDO");
+                    foreach (var obj in ListaInsidencias)
+                    {
+                        if (obj is Modelos.ExcepcionTrabajada)
+                        {
+                            var m_ExcTra = (Modelos.ExcepcionTrabajada)obj;
+                            l_Archivo.WriteLine(m_ExcTra.ID_Empleado + "\t" + m_ExcTra.Concepto + "\t" + m_ExcTra.Fecha.ToString("dd/MM/yyyy") + "\t" + m_ExcTra.Min_Retardo);
+                        }
+                    }
+                    l_Archivo.Close();
+                }
+                Aceptar.MensajeAceptar("Archivo guardado correctamente");
+            }
+            catch
+            {
+                Warning.MensajeWarning("Error al crear archivos");
+            }
+        }
     }
 }
