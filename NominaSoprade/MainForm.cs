@@ -6,6 +6,8 @@ using System.Data.OleDb;
 using System.Windows.Forms;
 using Herramientas.Clases;
 using System.IO;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace NominaSoprade
 {
@@ -191,40 +193,69 @@ namespace NominaSoprade
         private void btnVac_Click(object sender, EventArgs e)
         {
             SaveFileDialog m_Archivo = new SaveFileDialog();
-            StreamWriter l_Archivo;
-            m_Archivo.Filter = "XLS|*.xls";
+            m_Archivo.Filter = "XLSX|*.xlsx";
             m_Archivo.Title = string.Format(" {0} - {1} ", "Inari", "Vacaciones");
             try
             {
                 if (m_Archivo.ShowDialog() == DialogResult.OK)
                     {
                         if (m_Archivo.FileName.Equals(""))
-                            m_Archivo.FileName = "Vacaciones";
-                        l_Archivo = new StreamWriter(m_Archivo.FileName.Replace(".", String.Concat("", ".")));
-                        l_Archivo.WriteLine("EMPLEADO\tCONCEPTO\tFECHA_INICIO\tDIAS" );
-                        foreach (var obj in ListaInsidencias)
+                                m_Archivo.FileName = "Vacaciones";
+                        int m_Filas = 0;
+                        using (FileStream stream = new FileStream(m_Archivo.FileName, FileMode.Create, FileAccess.Write))
                         {
-                            if (obj is Modelos.Vacaciones)
+                            IWorkbook wb = new XSSFWorkbook();
+                            ISheet sheet = wb.CreateSheet("Vacaciones");
+                            ICreationHelper cH = wb.GetCreationHelper();
+                            IRow row = sheet.CreateRow(m_Filas);
+                            ICell cellID = row.CreateCell(0);
+                            cellID.SetCellValue(cH.CreateRichTextString("EMPLEADO"));
+                            ICell cellCo = row.CreateCell(1);
+                            cellCo.SetCellValue(cH.CreateRichTextString("CONCEPTO"));
+                            ICell cellUn = row.CreateCell(2);
+                            cellUn.SetCellValue(cH.CreateRichTextString("FECHA_INICIO"));
+                            ICell cellIm = row.CreateCell(3);
+                            cellIm.SetCellValue(cH.CreateRichTextString("DIAS"));
+                            m_Filas++;
+                            foreach (var obj in ListaInsidencias)
                             {
-                                var m_Vaciones = (Modelos.Vacaciones)obj;
-                                l_Archivo.WriteLine(m_Vaciones.ID_Empleado + "\t"+ m_Vaciones.Concepto + "\t" + m_Vaciones.Fecha.ToString("dd/MM/yyyy") + "\t" + m_Vaciones.Dias);
+                                IRow rows = sheet.CreateRow(m_Filas);
+                                if (obj is Modelos.Vacaciones)
+                                {
+                                    for (int j = 0; j < 4; j++)
+                                    {
+                                        var m_Vacaciones = (Modelos.Vacaciones)obj;
+                                        if (!m_Vacaciones.ID_Empleado.ToString().Equals("") && !(m_Vacaciones.ID_Empleado == string.Empty))
+                                        {
+                                            ICell cell = rows.CreateCell(j);
+                                            if (j == 0)
+                                                cell.SetCellValue(cH.CreateRichTextString(m_Vacaciones.ID_Empleado.ToString()));
+                                            else if (j == 1)
+                                                cell.SetCellValue(cH.CreateRichTextString(m_Vacaciones.Concepto.ToString()));
+                                            else if (j == 2)
+                                                cell.SetCellValue(cH.CreateRichTextString(m_Vacaciones.Fecha.ToString("dd/MM/yyyy")));
+                                            else if (j == 3)
+                                                cell.SetCellValue(cH.CreateRichTextString(m_Vacaciones.Dias.ToString()));
+                                        }
+                                    }
+                                    m_Filas++;
+                                }
                             }
+                            wb.Write(stream);
+                            Aceptar.MensajeAceptar("Archivo guardado correctamente");
                         }
-                        l_Archivo.Close();
                     }
-                Aceptar.MensajeAceptar("Archivo guardado correctamente");
             }
             catch
             {
                 Warning.MensajeWarning("Error al crear archivos");
             }
-            
         }
         private void btnAus_Click(object sender, EventArgs e)
         {
             SaveFileDialog m_Archivo = new SaveFileDialog();
-            StreamWriter l_Archivo;
-            m_Archivo.Filter = "XLS|*.xls";
+            int m_Filas = 0;
+            m_Archivo.Filter = "XLSX|*.xlsx";
             m_Archivo.Title = string.Format(" {0} - {1} ", "Inari", "Ausencias");
             try
             { 
@@ -232,30 +263,57 @@ namespace NominaSoprade
                 {
                     if (m_Archivo.FileName.Equals(""))
                         m_Archivo.FileName = "Ausencias";
-                    l_Archivo = new StreamWriter(m_Archivo.FileName.Replace(".", String.Concat("", ".")));
-                    l_Archivo.WriteLine("EMPLEADO\tTIPO_AUSENCIA\tFECHA_INICIO\tCANTIDAD");
-                    foreach (var obj in ListaInsidencias)
+                    using (FileStream stream = new FileStream(m_Archivo.FileName, FileMode.Create, FileAccess.Write))
                     {
-                        if (obj is Modelos.Ausencias)
+                        IWorkbook wb = new XSSFWorkbook();
+                        ISheet sheet = wb.CreateSheet("Ausencias");
+                        ICreationHelper cH = wb.GetCreationHelper();
+                        IRow row = sheet.CreateRow(m_Filas);
+                        ICell cellID = row.CreateCell(0);
+                        cellID.SetCellValue(cH.CreateRichTextString("EMPLEADO"));
+                        ICell cellAu = row.CreateCell(1);
+                        cellAu.SetCellValue(cH.CreateRichTextString("TIPO_AUSENCIA"));
+                        ICell cellIn = row.CreateCell(2);
+                        cellIn.SetCellValue(cH.CreateRichTextString("FECHA_INICIO"));
+                        ICell cellCa = row.CreateCell(3);
+                        cellCa.SetCellValue(cH.CreateRichTextString("CANTIDAD"));
+                        m_Filas++;
+                        foreach (var obj in ListaInsidencias)
                         {
-                            var m_Ausencias = (Modelos.Ausencias)obj;
-                            l_Archivo.WriteLine(m_Ausencias.ID_Empleado + "\t" + m_Ausencias.Concepto + "\t" + m_Ausencias.Fecha.ToString("dd/MM/yyyy") + "\t" + m_Ausencias.Cantidad);
+                            IRow rows = sheet.CreateRow(m_Filas);
+                            if (obj is Modelos.Ausencias)
+                            {
+                                for (int j = 0; j < 4; j++)
+                                {
+                                    var m_Ausencias = (Modelos.Ausencias)obj;
+                                    ICell cell = rows.CreateCell(j);
+                                    if (j == 0)
+                                        cell.SetCellValue(cH.CreateRichTextString(m_Ausencias.ID_Empleado.ToString()));
+                                    else if (j == 1)
+                                        cell.SetCellValue(cH.CreateRichTextString(m_Ausencias.Concepto.ToString()));
+                                    else if (j == 2)
+                                        cell.SetCellValue(cH.CreateRichTextString(m_Ausencias.Fecha.ToString("dd/MM/yyyy")));
+                                    else if (j == 3)
+                                        cell.SetCellValue(cH.CreateRichTextString(m_Ausencias.Cantidad.ToString()));
+                                }
+                                m_Filas++;
+                            }
                         }
+                        wb.Write(stream);
+                        Aceptar.MensajeAceptar("Archivo guardado correctamente");
                     }
-                    l_Archivo.Close();
                 }
-                Aceptar.MensajeAceptar("Archivo guardado correctamente");
             }
             catch
             {
                 Warning.MensajeWarning("Error al crear archivos");
             }
-}
+            
+        }
         private void btnIns_Click(object sender, EventArgs e)
         {
             SaveFileDialog m_Archivo = new SaveFileDialog();
-            StreamWriter l_Archivo;
-            m_Archivo.Filter = "XLS|*.xls";
+            m_Archivo.Filter = "XLSX|*.xlsx";
             m_Archivo.Title = string.Format(" {0} - {1} ", "Inari", "Insidencias");
             try
             {
@@ -263,19 +321,66 @@ namespace NominaSoprade
                 {
                     if (m_Archivo.FileName.Equals(""))
                         m_Archivo.FileName = "Insidencias";
-                    l_Archivo = new StreamWriter(m_Archivo.FileName.Replace(".", String.Concat("", ".")));
-                    l_Archivo.WriteLine("EMPLEADO\tCONCEPTO\tIMPORTE\tFECHA\tCENTRO_COSTO\tDEPARTAMENTO\tPUESTO");
-                    foreach (var obj in ListaInsidencias)
+                    int m_Filas = 0;
+                    using (FileStream stream = new FileStream(m_Archivo.FileName, FileMode.Create, FileAccess.Write))
                     {
-                        if (obj is Modelos.Insidencias)
+                        IWorkbook wb = new XSSFWorkbook();
+                        ISheet sheet = wb.CreateSheet("Incidencias");
+                        ICreationHelper cH = wb.GetCreationHelper();
+                        IRow row = sheet.CreateRow(m_Filas);
+                        ICell cellID = row.CreateCell(0);
+                        cellID.SetCellValue(cH.CreateRichTextString("EMPLEADO"));
+                        ICell cellCo = row.CreateCell(1);
+                        cellCo.SetCellValue(cH.CreateRichTextString("CONCEPTO"));
+                        ICell cellUn = row.CreateCell(2);
+                        cellUn.SetCellValue(cH.CreateRichTextString("UNIDADES"));
+                        ICell cellIm = row.CreateCell(3);
+                        cellIm.SetCellValue(cH.CreateRichTextString("IMPORTE"));
+                        ICell cellFe = row.CreateCell(4);
+                        cellFe.SetCellValue(cH.CreateRichTextString("FECHA"));
+                        ICell cellCe = row.CreateCell(5);
+                        cellCe.SetCellValue(cH.CreateRichTextString("CENTRO_COSTO"));
+                        ICell cellDe = row.CreateCell(6);
+                        cellDe.SetCellValue(cH.CreateRichTextString("DEPARTAMENTO"));
+                        ICell cellPu = row.CreateCell(7);
+                        cellPu.SetCellValue(cH.CreateRichTextString("PUESTO"));
+                        m_Filas++;
+                        foreach (var obj in ListaInsidencias)
                         {
-                            var m_Insidencias = (Modelos.Insidencias)obj;
-                            l_Archivo.WriteLine(m_Insidencias.ID_Empleado + "\t" + m_Insidencias.Concepto + "\t" + m_Insidencias.Importe + "\t" + m_Insidencias.Fecha.ToString("dd/MM/yyyy") + "\t" + m_CentrosCosto + "\t" + m_Insidencias.Departamento + "\t" + m_Insidencias.Puesto);
+                            IRow rows = sheet.CreateRow(m_Filas);
+                            if (obj is Modelos.Insidencias)
+                            {
+                                for (int j = 0; j < 8; j++)
+                                {
+                                    var m_Insidencias = (Modelos.Insidencias)obj;
+                                    if (!m_Insidencias.ID_Empleado.ToString().Equals("") && !(m_Insidencias.ID_Empleado == string.Empty))
+                                    {
+                                        ICell cell = rows.CreateCell(j);
+                                        if (j == 0)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_Insidencias.ID_Empleado.ToString()));
+                                        else if (j == 1)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_Insidencias.Concepto.ToString()));
+                                        else if (j == 2)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_Insidencias.Unidades.ToString()));
+                                        else if (j == 3)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_Insidencias.Importe.ToString()));
+                                        else if (j == 4)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_Insidencias.Fecha.ToString("dd/MM/yyyy")));
+                                        else if (j == 5)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_CentrosCosto));
+                                        else if (j == 6)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_Insidencias.Departamento.ToString()));
+                                        else if (j == 7)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_Insidencias.Puesto.ToString()));
+                                    }
+                                }
+                                m_Filas++;
+                            }
                         }
+                        wb.Write(stream);
+                        Aceptar.MensajeAceptar("Archivo guardado correctamente");
                     }
-                    l_Archivo.Close();
                 }
-                Aceptar.MensajeAceptar("Archivo guardado correctamente");
             }
             catch
             {
@@ -286,8 +391,7 @@ namespace NominaSoprade
         private void btnExcTra_Click(object sender, EventArgs e)
         {
             SaveFileDialog m_Archivo = new SaveFileDialog();
-            StreamWriter l_Archivo;
-            m_Archivo.Filter = "XLS|*.xls";
+            m_Archivo.Filter = "XLSX|*.xlsx";
             m_Archivo.Title = string.Format(" {0} - {1} ", "Inari", "Excepciones Trabajadas");
             try
             {
@@ -295,19 +399,51 @@ namespace NominaSoprade
                 {
                     if (m_Archivo.FileName.Equals(""))
                         m_Archivo.FileName = "Excepciones Trabajadas";
-                    l_Archivo = new StreamWriter(m_Archivo.FileName.Replace(".", String.Concat("", ".")));
-                    l_Archivo.WriteLine("EMPLEADO\tTIPO_EXCEP_TRABAJADA\tFECHA\tMINUTOS_RETARDO");
-                    foreach (var obj in ListaInsidencias)
+
+                    int m_Filas = 0;
+                    using (FileStream stream = new FileStream(m_Archivo.FileName, FileMode.Create, FileAccess.Write))
                     {
-                        if (obj is Modelos.ExcepcionTrabajada)
+                        IWorkbook wb = new XSSFWorkbook();
+                        ISheet sheet = wb.CreateSheet("Excepciones Trabajadas");
+                        ICreationHelper cH = wb.GetCreationHelper();
+                        IRow row = sheet.CreateRow(m_Filas);
+                        ICell cellID = row.CreateCell(0);
+                        cellID.SetCellValue(cH.CreateRichTextString("EMPLEADO"));
+                        ICell cellCo = row.CreateCell(1);
+                        cellCo.SetCellValue(cH.CreateRichTextString("TIPO_EXCEP_TRABAJADA"));
+                        ICell cellUn = row.CreateCell(2);
+                        cellUn.SetCellValue(cH.CreateRichTextString("FECHA"));
+                        ICell cellIm = row.CreateCell(3);
+                        cellIm.SetCellValue(cH.CreateRichTextString("MINUTOS_RETARDO"));
+                        m_Filas++;
+                        foreach (var obj in ListaInsidencias)
                         {
-                            var m_ExcTra = (Modelos.ExcepcionTrabajada)obj;
-                            l_Archivo.WriteLine(m_ExcTra.ID_Empleado + "\t" + m_ExcTra.Concepto + "\t" + m_ExcTra.Fecha.ToString("dd/MM/yyyy") + "\t" + m_ExcTra.Min_Retardo);
+                            IRow rows = sheet.CreateRow(m_Filas);
+                            if (obj is Modelos.ExcepcionTrabajada)
+                            {
+                                for (int j = 0; j < 4; j++)
+                                {
+                                    var m_ExcepcionTrabajada = (Modelos.ExcepcionTrabajada)obj;
+                                    if (!m_ExcepcionTrabajada.ID_Empleado.ToString().Equals("") && !(m_ExcepcionTrabajada.ID_Empleado == string.Empty))
+                                    {
+                                        ICell cell = rows.CreateCell(j);
+                                        if (j == 0)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_ExcepcionTrabajada.ID_Empleado.ToString()));
+                                        else if (j == 1)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_ExcepcionTrabajada.Concepto.ToString()));
+                                        else if (j == 2)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_ExcepcionTrabajada.Fecha.ToString("dd/MM/yyyy")));
+                                        else if (j == 3)
+                                            cell.SetCellValue(cH.CreateRichTextString(m_ExcepcionTrabajada.Min_Retardo.ToString()));
+                                    }
+                                }
+                                m_Filas++;
+                            }
                         }
+                        wb.Write(stream);
+                        Aceptar.MensajeAceptar("Archivo guardado correctamente");
                     }
-                    l_Archivo.Close();
                 }
-                Aceptar.MensajeAceptar("Archivo guardado correctamente");
             }
             catch
             {

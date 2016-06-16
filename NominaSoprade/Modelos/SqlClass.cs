@@ -7,8 +7,8 @@ namespace NominaSoprade.Modelos
 {
     public class SqlClass
     {
-        //string m_cadena = "Persist Security Info=False;User ID=sa;Password=Sql1N4r1;Initial Catalog=dbDatosNominaTest;Server=DB-SERVER\\INARISQL";
-        string m_cadena = "Persist Security Info=False;User ID=sa;Password=Inari2016;Initial Catalog=dbDatosNomina;Server=TI-PROGANA01\\INARIPROG";
+        string m_cadena = "Persist Security Info=False;User ID=sa;Password=Sql1N4r1;Initial Catalog=dbDatosNominaTest;Server=DB-SERVER\\INARISQL";
+        //string m_cadena = "Persist Security Info=False;User ID=sa;Password=Inari2016;Initial Catalog=dbDatosNomina;Server=TI-PROGANA01\\INARIPROG";
         public DataTable ObtenerEmp()
         {
             DataTable m_empleados = new DataTable();

@@ -38,7 +38,7 @@ namespace NominaSoprade.Modelos
                             {
                                 ListaInsidencias.Add(new Errores()
                                 {
-                                    ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                    ID_Empleado = m_Row[2].ToString(),
                                     Columna = m_Column.ColumnName,
                                     Nombre = m_Row[3].ToString(),
                                     Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -61,7 +61,7 @@ namespace NominaSoprade.Modelos
                                         }
                                         else
                                         {
-                                            ListaInsidencias.Add(new Vacaciones() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CV1", Dias = m_vac, Fecha = m_fecvac.Value });
+                                            ListaInsidencias.Add(new Vacaciones() { ID_Empleado = m_Row[2].ToString(), Concepto = "CV1", Dias = m_vac, Fecha = m_fecvac.Value });
                                             m_fecvac = Convert.ToDateTime(m_Column.ColumnName);
                                             m_vac = 1;
                                         }
@@ -82,7 +82,7 @@ namespace NominaSoprade.Modelos
                                         }
                                         else
                                         {
-                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF1", Fecha = m_fecf.Value, Cantidad = m_f });
+                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF1", Fecha = m_fecf.Value, Cantidad = m_f });
                                             m_fecf = Convert.ToDateTime(m_Column.ColumnName);
                                             m_f = 1;
                                         }
@@ -103,7 +103,7 @@ namespace NominaSoprade.Modelos
                                         }
                                         else
                                         {
-                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF4", Fecha = m_fecpsg.Value, Cantidad = m_psg });
+                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF4", Fecha = m_fecpsg.Value, Cantidad = m_psg });
                                             m_fecpsg = Convert.ToDateTime(m_Column.ColumnName);
                                             m_psg = 1;
                                         }
@@ -124,7 +124,7 @@ namespace NominaSoprade.Modelos
                                         }
                                         else
                                         {
-                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF3", Fecha = m_fecpgs.Value, Cantidad = m_pgs });
+                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF3", Fecha = m_fecpgs.Value, Cantidad = m_pgs });
                                             m_fecpgs = Convert.ToDateTime(m_Column.ColumnName);
                                             m_pgs = 1;
                                         }
@@ -145,7 +145,7 @@ namespace NominaSoprade.Modelos
                                         }
                                         else
                                         {
-                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF5", Fecha = m_fecr.Value, Cantidad = m_r });
+                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF5", Fecha = m_fecr.Value, Cantidad = m_r });
                                             m_fecr = Convert.ToDateTime(m_Column.ColumnName);
                                             m_r = 1;
                                         }
@@ -159,7 +159,7 @@ namespace NominaSoprade.Modelos
                                         {
                                             if(DateTime.Parse(m_Filas[0].ToString()) == DateTime.Parse(m_Column.ColumnName))
                                             {
-                                                ListaInsidencias.Add(new ExcepcionTrabajada() { ID_Empleado = Int32.Parse(m_Row[2].ToString()) , Concepto = "CD2", Fecha = DateTime.Parse(m_Column.ColumnName), Min_Retardo = 1 });
+                                                ListaInsidencias.Add(new ExcepcionTrabajada() { ID_Empleado = m_Row[2].ToString() , Concepto = "CD2", Fecha = DateTime.Parse(m_Column.ColumnName), Min_Retardo = 1 });
                                             }
                                         }
                                     }
@@ -178,7 +178,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "358", Unidades = 1, Importe = m_valor });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "358", Unidades = 1, Importe = m_valor });
                                     }
                                 }
                                 catch
@@ -187,7 +187,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -206,7 +206,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "353", Unidades = 1, Importe = m_valor });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "353", Unidades = 1, Importe = m_valor });
                                     }
                                 }
                                 catch
@@ -215,7 +215,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = (m_Row[2].ToString()),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -234,7 +234,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "354", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "354", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -243,7 +243,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = (m_Row[2].ToString()),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -262,7 +262,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "355", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "355", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -271,7 +271,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -290,7 +290,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "383", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "383", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -299,7 +299,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -318,7 +318,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "377", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "377", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -327,7 +327,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -346,7 +346,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "375", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "375", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -355,7 +355,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -374,7 +374,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "378", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "378", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -383,7 +383,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -402,7 +402,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "379", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "379", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -411,7 +411,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -430,7 +430,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "379", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "379", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -439,7 +439,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -458,7 +458,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "371", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "371", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -467,7 +467,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -486,7 +486,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "385", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "385", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -495,7 +495,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -514,7 +514,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "382", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "382", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -523,7 +523,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -542,7 +542,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "351", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "351", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -551,7 +551,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -570,7 +570,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "381", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "381", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -579,7 +579,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -598,7 +598,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "468", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "468", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -607,7 +607,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -626,7 +626,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "469", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "469", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -635,7 +635,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -654,7 +654,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "470", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "470", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -663,7 +663,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -682,7 +682,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "445", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "445", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -691,7 +691,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -710,7 +710,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "465", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "465", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -719,7 +719,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -738,7 +738,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "476", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "476", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -747,7 +747,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -766,7 +766,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "444", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "444", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -775,7 +775,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -794,7 +794,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "478", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "478", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -803,7 +803,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -822,7 +822,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "477", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "477", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -831,7 +831,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -850,7 +850,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "479", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "479", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -859,7 +859,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -878,7 +878,7 @@ namespace NominaSoprade.Modelos
                                     float m_valor = float.Parse(m_Row[m_Column.ColumnName].ToString());
                                     if (m_valor > 0)
                                     {
-                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "443", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
+                                        ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "443", Unidades = 1, Importe = m_valor, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
                                     }
                                 }
                                 catch
@@ -887,7 +887,7 @@ namespace NominaSoprade.Modelos
                                     {
                                         ListaInsidencias.Add(new Errores()
                                         {
-                                            ID_Empleado = (Int32.Parse(m_Row[2].ToString())),
+                                            ID_Empleado = m_Row[2].ToString(),
                                             Columna = m_Column.ColumnName,
                                             Nombre = m_Row[3].ToString(),
                                             Concepto = m_Row[m_Column.ColumnName].ToString()
@@ -900,15 +900,15 @@ namespace NominaSoprade.Modelos
                     }
                 }
                 if (m_vac > 0)
-                    ListaInsidencias.Add(new Vacaciones() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CV1", Dias = m_vac, Fecha = m_fecvac.Value });
+                    ListaInsidencias.Add(new Vacaciones() { ID_Empleado = m_Row[2].ToString(), Concepto = "CV1", Dias = m_vac, Fecha = m_fecvac.Value });
                 if (m_f > 0)
-                    ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF1", Fecha = m_fecf.Value, Cantidad = m_f });
+                    ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF1", Fecha = m_fecf.Value, Cantidad = m_f });
                 if (m_psg > 0)
-                    ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF4", Fecha = m_fecpsg.Value, Cantidad = m_psg });
+                    ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF4", Fecha = m_fecpsg.Value, Cantidad = m_psg });
                 if (m_pgs > 0)
-                    ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF3", Fecha = m_fecpgs.Value, Cantidad = m_pgs });
+                    ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF3", Fecha = m_fecpgs.Value, Cantidad = m_pgs });
                 if (m_r > 0)
-                    ListaInsidencias.Add(new Ausencias() { ID_Empleado = Int32.Parse(m_Row[2].ToString()), Concepto = "CF5", Fecha = m_fecr.Value, Cantidad = m_r });
+                    ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF5", Fecha = m_fecr.Value, Cantidad = m_r });
             }
             return ListaInsidencias;
         }
