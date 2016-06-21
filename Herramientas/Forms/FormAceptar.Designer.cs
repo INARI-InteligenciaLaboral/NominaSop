@@ -81,6 +81,7 @@
             this.Name = "FormAceptar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aceptar";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.FormAceptar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxAceptar)).EndInit();
             this.ResumeLayout(false);

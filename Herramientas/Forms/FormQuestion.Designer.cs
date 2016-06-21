@@ -94,6 +94,7 @@
             this.Name = "FormQuestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pregunta";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pbxQuestion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

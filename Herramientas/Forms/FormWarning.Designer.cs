@@ -65,6 +65,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormWarning";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pbxWarning)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

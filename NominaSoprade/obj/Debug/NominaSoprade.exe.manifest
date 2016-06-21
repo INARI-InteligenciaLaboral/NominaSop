@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4KT8sc/7QdOOvNccBnPpbpKe9Ko=</dsig:DigestValue>
+        <dsig:DigestValue>YEAmfBdCPX0rtM6C2tFxkXkIFhw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8YZj+X+mMvJZT1wE8WQW2C3b948=</dsig:DigestValue>
+        <dsig:DigestValue>neAQUQb6mdprmX9EwFHPZLX/iRM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NominaSoprade.exe" size="637952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NominaSoprade.exe" size="638464">
       <assemblyIdentity name="NominaSoprade" version="2016.6.3.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Ed0znsUjUOfvOrapIE+q2aigYyo=</dsig:DigestValue>
+        <dsig:DigestValue>hAj35LAT+E9k5k4ajB34uV+gG8I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

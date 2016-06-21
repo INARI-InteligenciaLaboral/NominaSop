@@ -93,6 +93,7 @@
             this.Name = "FormSolicitar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Introducir";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pbxSolicitar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

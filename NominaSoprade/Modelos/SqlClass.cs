@@ -34,6 +34,7 @@ namespace NominaSoprade.Modelos
             }
             return m_empleados;
         }
+
         public string ObtCentroCosto()
         {
             DataTable m_CenCosto = new DataTable();
@@ -61,6 +62,7 @@ namespace NominaSoprade.Modelos
             }
             return m_StrCen;
         }
+
         public DateTime? ObtenerPeri(DateTime m_Fecha)
         {
             string m_command = "SELECT periFecIni FROM dbo.nomPeriodos WHERE periIDNomi = 'ORD' AND periIDPcal = '5601' ";
@@ -97,6 +99,7 @@ namespace NominaSoprade.Modelos
                 return null;
             }
         }
+
         public DataTable ObtenerDiasAsueto(DateTime m_FechaInicio)
         {
             DataTable m_empleados = new DataTable();

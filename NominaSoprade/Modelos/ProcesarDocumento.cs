@@ -912,6 +912,7 @@ namespace NominaSoprade.Modelos
             }
             return ListaInsidencias;
         }
+
         private bool valvalido(string m_Insidencia)
         {
             string[] m_ArreInsid = new string[11] { "A", "F", "B", "VAC", "D", "PD", "R", "PGS", "IM", "PSG", "EG" };

@@ -161,6 +161,7 @@
             this.btnAnalizar.Text = "Analizar";
             this.btnAnalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAnalizar.UseVisualStyleBackColor = true;
+            this.btnAnalizar.EnabledChanged += new System.EventHandler(this.btnAnalizar_EnabledChanged);
             this.btnAnalizar.Click += new System.EventHandler(this.btnAnalizar_Click);
             // 
             // pbxLogo

@@ -81,6 +81,7 @@
             this.Name = "FormInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Information";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pbxInformation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
