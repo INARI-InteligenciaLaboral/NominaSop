@@ -14,13 +14,8 @@ E:\Code\NominaSop\NominaSoprade\bin\Debug\NominaSoprade.application
 E:\Code\NominaSop\NominaSoprade\bin\Debug\NominaSoprade.exe
 E:\Code\NominaSop\NominaSoprade\bin\Debug\NominaSoprade.pdb
 E:\Code\NominaSop\NominaSoprade\bin\Debug\Herramientas.dll
-E:\Code\NominaSop\NominaSoprade\bin\Debug\ICSharpCode.SharpZipLib.dll
 E:\Code\NominaSop\NominaSoprade\bin\Debug\Microsoft.CSharp.dll
 E:\Code\NominaSop\NominaSoprade\bin\Debug\Microsoft.VisualBasic.dll
-E:\Code\NominaSop\NominaSoprade\bin\Debug\NPOI.dll
-E:\Code\NominaSop\NominaSoprade\bin\Debug\NPOI.OOXML.dll
-E:\Code\NominaSop\NominaSoprade\bin\Debug\NPOI.OpenXml4Net.dll
-E:\Code\NominaSop\NominaSoprade\bin\Debug\NPOI.OpenXmlFormats.dll
 E:\Code\NominaSop\NominaSoprade\bin\Debug\System.Data.DataSetExtensions.dll
 E:\Code\NominaSop\NominaSoprade\bin\Debug\System.Xml.dll
 E:\Code\NominaSop\NominaSoprade\bin\Debug\System.Xml.Linq.dll
