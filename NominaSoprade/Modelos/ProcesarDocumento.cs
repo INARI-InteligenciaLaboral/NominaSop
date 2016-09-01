@@ -139,16 +139,9 @@ namespace NominaSoprade.Modelos
                                     }
                                     else
                                     {
-                                        if (m_fecr.Value.AddDays(m_r) == Convert.ToDateTime(m_Column.ColumnName))
-                                        {
-                                            m_r++;
-                                        }
-                                        else
-                                        {
-                                            ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF5", Fecha = m_fecr.Value, Cantidad = m_r });
-                                            m_fecr = Convert.ToDateTime(m_Column.ColumnName);
-                                            m_r = 1;
-                                        }
+                                        ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF5", Fecha = m_fecr.Value, Cantidad = m_r });
+                                        m_fecr = Convert.ToDateTime(m_Column.ColumnName);
+                                        m_r = 1;
                                     }
                                 }
                                 else if (m_Row[m_Column.ColumnName].ToString().ToUpper().Equals("A"))

@@ -1,0 +1,175 @@
+[33mcommit 22c24da2b6c5c7eb80f813593d0b495c5c466784[m
+Author: Santiago Iván Almaraz Segovia <salmaraz@inteligencialaboral.com>
+Date:   Wed Aug 31 18:07:10 2016 -0500
+
+    Version de codigo del mes de agosto
+
+[33mcommit 175ba8375b86e9881323caab71572331adc2a694[m
+Author: Santiago Iván <salmaraz@inteligencialaboral.com>
+Date:   Tue Jun 21 13:16:50 2016 -0500
+
+    Creacion de regiones y standarizacion de codigo
+
+[33mcommit 808831b0aba82a4cbb9b7ee05c440c1aab83b8c8[m
+Author: Santiago Iván <salmaraz@inteligencialaboral.com>
+Date:   Mon Jun 20 17:27:00 2016 -0500
+
+    Modificaciones deacuerdo a primeras pruebas y entrega version
+
+[33mcommit 88aecb8f96f4e4f01e7dccb85ce8b4ad4c5e93a5[m
+Author: Santiago Iván <salmaraz@inteligencialaboral.com>
+Date:   Thu Jun 16 11:03:22 2016 -0500
+
+    Realizacion de modificaciones solicitadas apartir de las primeras pruebas
+
+[33mcommit f567157e0a5cd3111accc088e45e56c59f012a6c[m
+Author: Santiago Iván <salmaraz@inteligencialaboral.com>
+Date:   Thu Jun 2 12:48:33 2016 -0500
+
+    Versión de prueba concluida
+
+[33mcommit acf67a31814cd7fd5b5cf8c8aa835a8171fa7266[m
+Author: Santiago Iván <salmaraz@inteligencialaboral.com>
+Date:   Wed Jun 1 16:46:15 2016 -0500
+
+    Obtencion y manipulacion de dias de asueto
+
+[33mcommit 37a6609ee8e5f6bf2e13317ad0afdc57e61de8a3[m
+Author: Santiago Iván <salmaraz@inteligencialaboral.com>
+Date:   Wed Jun 1 12:22:13 2016 -0500
+
+    Se agrego FromQuestion al repositorio de mensajes
+
+[33mcommit 5dc7762af5649c6b6187779996f94665aba1db00[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Wed Jun 1 12:09:55 2016 -0500
+
+    Cambio a Framework 4.0
+
+[33mcommit a087bfa151a213a42021feb855e1e836bfef3b1e[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Wed Jun 1 10:02:18 2016 -0500
+
+    Implementacion de mensajes diseñados, modificacion en analisis
+
+[33mcommit 3ef0fe17b637d9aa935eafd24e017a62db998927[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Tue May 31 17:08:06 2016 -0500
+
+    Se agregaron Priodos Ordinarios y Centro de Costos a los reportes
+
+[33mcommit 3210a248605048aed5e40f58642a8063f0bfe1d4[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Tue May 31 09:53:25 2016 -0500
+
+    Obtencion de CentroCostO y modificacion estructura Insidencias
+
+[33mcommit b47275bf154009342160ced1e9917fc850c27baf[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Mon May 30 16:31:57 2016 -0500
+
+    Salida de Insidencias, vacaciones, ausencias y errores para crear doc
+
+[33mcommit 8178a87a37e85f637d10992e2dc89a70191c05a2[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Mon May 30 13:06:00 2016 -0500
+
+    Todas las Insidencias agregadas
+
+[33mcommit 6c775ab8aa8f55eef41220f659b53fe94bdd83fd[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Mon May 30 01:27:00 2016 -0500
+
+    Vacaciones, Ausencias y datos obtenidos desde BD
+
+[33mcommit d70ab674bdb89e9f683993ba70c07786459e72d9[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Sun May 29 19:54:47 2016 -0500
+
+    Se crearon modelos de Insidencias
+
+[33mcommit edafd0fdd4f2b3886a2001d8c2d8681052d58c82[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Thu May 26 14:53:55 2016 -0500
+
+    Creacion de proyecto Herramientas
+
+[33mcommit 24d769bffe2177e81ff42543eb2dd540a3a66290[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Thu May 26 14:39:06 2016 -0500
+
+    Obtencion de datos de Empleado
+
+[33mcommit f3fefb557cdf240fedc686c5e3e5b937ba2ef725[m
+Author: Santiago Iván <salmaraz@inteligencilaboral.com>
+Date:   Wed May 25 16:23:57 2016 -0500
+
+    Respuesta del equipo-servidor
+
+[33mcommit 885bd3cb133dee5dfee914f421243cdea0dfc695[m
+Author: InariProg <salmaraz@inteligencialaboral.com>
+Date:   Wed May 25 16:22:00 2016 -0500
+
+    Conexiones establecidas
+    
+    Conexiones establecidas
+
+[33mcommit b485b5861d9824aed44ad7afcb6303e985269d3c[m
+Author: InariProg <salmaraz@inteligencialaboral.com>
+Date:   Wed May 25 16:07:27 2016 -0500
+
+    Delete NuevoDocumento.txt
+
+[33mcommit 2ee7dcb8702d93c69af6ee35bef1cd987333214e[m
+Author: InariProg <salmaraz@inteligencialaboral.com>
+Date:   Wed May 25 15:42:57 2016 -0500
+
+    Create NuevoDocumento.txt
+
+[33mcommit 4260f66a16de6c70ee4b84ea9afbf176be366cff[m
+Author: Santiago Iván <almarazssi@hotmail.com>
+Date:   Mon May 23 11:36:11 2016 -0500
+
+    Ultimo repositorio de PC escritorio
+
+[33mcommit de1566d33ad85e13c1e1c4e46375eec1c2bf8c16[m
+Author: Santiago Iván <almarazssi@hotmail.com>
+Date:   Tue May 17 15:58:37 2016 -0500
+
+    Se agrego el boton analizar
+
+[33mcommit 945b353c1db3f02f0a1bfab93b11b74e4deb704d[m
+Author: Santiago Iván <almarazssi@hotmail.com>
+Date:   Tue May 17 15:21:01 2016 -0500
+
+    Informe de insidencias erroneas e hilos segundo plano
+
+[33mcommit e8c5c212d36ac6ce682bf2e1f90a66fbc4ba5767[m
+Author: Santiago Iván <almarazssi@hotmail.com>
+Date:   Thu May 12 15:41:53 2016 -0500
+
+    Se agrego la clase ProcesarDocumento
+
+[33mcommit 33011e0a66e8d1315916d963d10d8cd4995f9080[m
+Author: Santiago Iván <almarazssi@hotmail.com>
+Date:   Thu May 12 12:11:35 2016 -0500
+
+    Version entregada para mostrar en reunion
+
+[33mcommit 6cee7cbfeb031ebd8122e9c7d40ebeddbe4ca06e[m
+Author: Santiago Iván <almarazssi@hotmail.com>
+Date:   Wed May 11 18:36:14 2016 -0500
+
+    Carga de archivo excel
+
+[33mcommit 6de8be42db42849e1317c3b605dbd94bb39cdc6e[m
+Author: Santiago Iván <almarazssi@hotmail.com>
+Date:   Wed May 11 17:53:53 2016 -0500
+
+    Diseño y solitud de documento
+
+[33mcommit 6009d8085135412b8db20f20437987fdaa88eded[m
+Author: Santiago Iván <almarazssi@hotmail.com>
+Date:   Wed May 11 13:39:55 2016 -0500
+
+    Inicio del proyecto Soprade
