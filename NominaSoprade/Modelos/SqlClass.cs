@@ -7,8 +7,7 @@ namespace NominaSoprade.Modelos
 {
     public class SqlClass
     {
-        string m_cadena = "Persist Security Info=False;User ID=sa;Password=Sql1N4r1;Initial Catalog=dbDatosNominaTest;Server=DB-SERVER\\INARISQL";
-        //string m_cadena = "Persist Security Info=False;User ID=sa;Password=Inari2016;Initial Catalog=dbDatosNomina;Server=TI-PROGANA01\\INARIPROG";
+        string m_cadena = "Persist Security Info=False;Initial Catalog=dbDatosNomina;";
         public DataTable ObtenerEmp()
         {
             DataTable m_empleados = new DataTable();
@@ -21,7 +20,7 @@ namespace NominaSoprade.Modelos
                     m_command += "RTRIM(Emp.emplApMat) as NombreCompleto, Cont.contIDPues, Cont.contIDDeps ";
                     m_command += "FROM dbo.nomContratos as Cont INNER JOIN dbo.nomEmpleados AS Emp ON ";
                     m_command += "Cont.contIDEmpl = Emp.emplIDEmpl WHERE (contIDEmpl LIKE '130%' Or contIDEmpl LIKE '131%') ";
-                    m_command += "AND Emp.emplEstatus = 'A'";
+                    m_command += "AND Emp.emplEstatus = 'A' Order by contIDEmpl";
 
                     SqlCommand m_adapter = new SqlCommand(m_command, m_conexion);
                     m_empleados.Load(m_adapter.ExecuteReader());
