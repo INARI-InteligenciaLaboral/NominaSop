@@ -157,12 +157,26 @@ namespace NominaSoprade.Modelos
                                         }
                                     }
                                 }
+                                else if (m_Row[m_Column.ColumnName].ToString().ToUpper().Equals("PD"))
+                                {
+                                    if (m_DiasAuseto.Rows.Count > 0)
+                                    {
+                                        foreach (DataRow m_Filas in m_DiasAuseto.Rows)
+                                        {
+                                            if (DateTime.Parse(m_Filas[0].ToString()) == DateTime.Parse(m_Column.ColumnName))
+                                            {
+                                                ListaInsidencias.Add(new ExcepcionTrabajada() { ID_Empleado = m_Row[2].ToString(), Concepto = "CD3", Fecha = DateTime.Parse(m_Column.ColumnName), Min_Retardo = 1 });
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                     catch
                     {
-                        if (m_Column.ColumnName.ToString().ToUpper().Equals("VALES DE DESPENSA"))
+                        string m_Columna = m_Column.ColumnName.ToString().ToUpper().Replace(" ", "");
+                        if (m_Columna.ToString().Equals("VALESDEDESPENSA"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -190,7 +204,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("PREMIO DE PUNTUALIDAD"))
+                        else if (m_Columna.ToString().Equals("PREMIODEPUNTUALIDAD"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -218,7 +232,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("PREMIO DE ASISTENCIA"))
+                        else if (m_Columna.ToString().Equals("PREMIODEASISTENCIA"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -246,7 +260,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("PRODUCTIVIDAD"))
+                        else if (m_Columna.ToString().Equals("PRODUCTIVIDAD"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -274,7 +288,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("APOYO COMPENSACIÓN") || m_Column.ColumnName.ToString().ToUpper().Equals("COMPENSACIÓN"))
+                        else if (m_Columna.ToString().Equals("APOYOCOMPENSACIÓN") || m_Columna.ToString().Equals("COMPENSACIÓN"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -302,7 +316,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("APOYO GRATIFICACIÓN") || m_Column.ColumnName.ToString().ToUpper().Equals("GRATIFICACIÓN"))
+                        else if (m_Columna.ToString().Equals("APOYOGRATIFICACIÓN") || m_Columna.ToString().Equals("GRATIFICACIÓN"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -330,7 +344,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("APOYO TRANSPORTE") || m_Column.ColumnName.ToString().ToUpper().Equals("APOYO DE TRANSPORTE"))
+                        else if (m_Columna.ToString().Equals("APOYOTRANSPORTE") || m_Columna.ToString().Equals("APOYODETRANSPORTE"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -358,7 +372,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("APOYO PROMOCIÓN") || m_Column.ColumnName.ToString().ToUpper().Equals("APOYO DE PROMOCIÓN"))
+                        else if (m_Columna.ToString().Equals("APOYOPROMOCIÓN") || m_Columna.ToString().Equals("APOYODEPROMOCIÓN"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -386,7 +400,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("BONO RECOMENDACIÓN") || m_Column.ColumnName.ToString().ToUpper().Equals("BONO DE RECOMENDACIÓN"))
+                        else if (m_Columna.ToString().Equals("BONORECOMENDACIÓN") || m_Columna.ToString().Equals("BONODERECOMENDACIÓN"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -414,7 +428,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("APOYO TECNOLOGÍA") || m_Column.ColumnName.ToString().ToUpper().Equals("APOYO DE TECNOLOGÍA"))
+                        else if (m_Columna.ToString().Equals("APOYOTECNOLOGÍA") || m_Columna.ToString().Equals("APOYODETECNOLOGÍA"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -442,7 +456,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("COMPLEMENTO NÓMINA"))
+                        else if (m_Columna.ToString().Equals("COMPLEMENTONÓMINA"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -470,7 +484,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("BONO") || m_Column.ColumnName.ToString().ToUpper().Equals("BONO A"))
+                        else if (m_Columna.ToString().Equals("BONO") || m_Columna.ToString().Equals("BONOA"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -498,7 +512,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("PRIMA VACACIONAL"))
+                        else if (m_Columna.ToString().Equals("PRIMAVACACIONAL"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -526,7 +540,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("COMISIONES"))
+                        else if (m_Columna.ToString().Equals("COMISIONES"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -554,7 +568,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("APOYO POR ASISTENCIA"))
+                        else if (m_Columna.ToString().Equals("APOYOPORASISTENCIA"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -582,7 +596,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("CREESER (BC)"))
+                        else if (m_Columna.ToString().Equals("CREESER(BC)"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -610,7 +624,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("CREESER (T. AMI)") || m_Column.ColumnName.ToString().ToUpper().Equals("CREESER (T AMI)"))
+                        else if (m_Columna.ToString().Equals("CREESER(T.AMI)") || m_Columna.ToString().Equals("CREESER(TAMI)"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -638,7 +652,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("ARTICULOS PROMOCIONALES"))
+                        else if (m_Columna.ToString().Equals("ARTICULOSPROMOCIONALES") || m_Columna.ToString().Equals("ART.PROMOCIONALES") || m_Columna.ToString().Equals("ARTPROMOCIONALES"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -666,7 +680,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("EVENTOS INSTITUCIONALES"))
+                        else if (m_Columna.ToString().Equals("EVENTOSINSTITUCIONALES"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -694,7 +708,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("GASTOS NO COMPROBADOS"))
+                        else if (m_Columna.ToString().Equals("GASTOSNOCOMPROBADOS"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -722,7 +736,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("BAJAS DESFASADAS"))
+                        else if (m_Columna.ToString().Equals("BAJASDESFASADAS"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -750,7 +764,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("PRESTAMO") || m_Column.ColumnName.ToString().ToUpper().Equals("PRÉSTAMOS CALL FASST") || m_Column.ColumnName.ToString().ToUpper().Equals("PRESTAMOS CALL FASST"))
+                        else if (m_Columna.ToString().Equals("PRESTAMO") || m_Columna.ToString().Equals("PRÉSTAMOSCALLFASST") || m_Columna.ToString().Equals("PRESTAMOSCALLFASST"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -778,7 +792,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("PRESTAMO CAJA DE AHORRO") || m_Column.ColumnName.ToString().ToUpper().Equals("PRÉSTAMOS CAJA DE AHORRO CALL FASST") || m_Column.ColumnName.ToString().ToUpper().Equals("PRESTAMOS CAJA DE AHORRO CALL FASST"))
+                        else if (m_Columna.ToString().Equals("PRESTAMOCAJADEAHORRO") || m_Columna.ToString().Equals("PRÉSTAMOSCAJADEAHORROCALLFASST") || m_Columna.ToString().Equals("PRESTAMOSCAJADEAHORROCALLFASST"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -806,7 +820,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("CAJA DE AHORRO") || m_Column.ColumnName.ToString().ToUpper().Equals("CAJA DE AHORRO FASST"))
+                        else if (m_Columna.ToString().Equals("CAJADEAHORRO") || m_Columna.ToString().Equals("CAJADEAHORROFASST"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -834,7 +848,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("COMPLEMENTO DE NOMINA"))
+                        else if (m_Columna.ToString().Equals("COMPLEMENTODENOMINA"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
@@ -862,7 +876,7 @@ namespace NominaSoprade.Modelos
                                 }
                             }
                         }
-                        else if (m_Column.ColumnName.ToString().ToUpper().Equals("PERMISO GENTE INNOVANDO"))
+                        else if (m_Columna.ToString().Equals("PERMISOGENTEINNOVANDO"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
                             {
