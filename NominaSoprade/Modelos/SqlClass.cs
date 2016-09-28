@@ -31,7 +31,7 @@ namespace NominaSoprade.Modelos
             {
                 MessageBox.Show("Error de conexión \n" + ex.Message);
             }
-            return m_empleados;
+            return m_empleados; ;
         }
 
         public string ObtCentroCosto()
