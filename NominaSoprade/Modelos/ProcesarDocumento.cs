@@ -13,7 +13,7 @@ namespace NominaSoprade.Modelos
             ArrayList ListaInsidencias = new ArrayList();
             foreach (DataRow m_Row in m_DataGrid.Rows)
             {
-                int m_vac = 0, m_f = 0, m_psg = 0, m_pgs = 0, m_r = 0;
+                int m_vac = 0, m_f = 0, m_psg = 0, m_pgs = 0, m_r = 0, m_pd = 0;
                 DateTime? m_fecvac = null, m_fecf = null, m_fecpsg = null, m_fecpgs = null, m_fecr = null;
                 foreach (DataColumn m_Column in m_DataGrid.Columns)
                 {
@@ -159,23 +159,14 @@ namespace NominaSoprade.Modelos
                                 }
                                 else if (m_Row[m_Column.ColumnName].ToString().ToUpper().Equals("PD"))
                                 {
-                                    if (m_DiasAuseto.Rows.Count > 0)
-                                    {
-                                        foreach (DataRow m_Filas in m_DiasAuseto.Rows)
-                                        {
-                                            if (DateTime.Parse(m_Filas[0].ToString()) == DateTime.Parse(m_Column.ColumnName))
-                                            {
-                                                ListaInsidencias.Add(new ExcepcionTrabajada() { ID_Empleado = m_Row[2].ToString(), Concepto = "CD3", Fecha = DateTime.Parse(m_Column.ColumnName), Min_Retardo = 1 });
-                                            }
-                                        }
-                                    }
+                                    m_pd++;
                                 }
                             }
                         }
                     }
                     catch
                     {
-                        string m_Columna = m_Column.ColumnName.ToString().ToUpper().Replace(" ", "");
+                        string m_Columna = m_Column.ColumnName.ToString().ToUpper().Replace(" ", "").Replace("#","").Replace(".","");
                         if (m_Columna.ToString().Equals("VALESDEDESPENSA"))
                         {
                             if (!string.IsNullOrEmpty(m_Row[m_Column.ColumnName].ToString()))
@@ -916,6 +907,8 @@ namespace NominaSoprade.Modelos
                     ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF3", Fecha = m_fecpgs.Value, Cantidad = m_pgs });
                 if (m_r > 0)
                     ListaInsidencias.Add(new Ausencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CF5", Fecha = m_fecr.Value, Cantidad = m_r });
+                if (m_pd > 0)
+                    ListaInsidencias.Add(new Insidencias() { ID_Empleado = m_Row[2].ToString(), Concepto = "CD3", Unidades = m_pd, Importe = 0, Departamento = m_Row[0].ToString(), Puesto = m_Row[1].ToString(), Fecha = m_FechaInsi.Value });
             }
             return ListaInsidencias;
         }
